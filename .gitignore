@@ -25,3 +25,9 @@ package-lock.json
 # Misc
 #_sass/vendors
 #assets/js/dist
+
+# VSCode 개인 설정 폴더
+.vscode/
+
+# Jekyll 초안(draft) 폴더 (게시되지 않은 글들)
+_drafts/
