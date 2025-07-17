@@ -178,13 +178,18 @@ defaults:
       toc: true
       permalink: /posts/:title/
 
-  # 2) Asp.Net Core 폴더 안 글에만 categories 자동 지정
+  # Asp.Net Core
   - scope:
       path: "_posts/asp.net.core"   # 여기만 변경
       type: posts
     values:
       categories: ["CSharp","Asp.Net Core"]  # 카테고리 이름(사용하고 싶은 대로 수정)
-
+  # Blogging
+  - scope:
+      path: "_posts/blogging"   # 여기만 변경
+      type: posts
+    values:
+      categories: ["Blogging"]  # 카테고리 이름(사용하고 싶은 대로 수정)
   # 3) 초안(_drafts) 기본값
   - scope:
       path: _drafts
