@@ -180,10 +180,10 @@ defaults:
 
   # 2) Asp.Net Core 폴더 안 글에만 categories 자동 지정
   - scope:
-      path: "_posts/asp-net-core"   # 여기만 변경
+      path: "_posts/asp.net.core"   # 여기만 변경
       type: posts
     values:
-      categories: ["CSharp","asp-net-core"]  # 카테고리 이름(사용하고 싶은 대로 수정)
+      categories: ["CSharp","Asp.Net Core"]  # 카테고리 이름(사용하고 싶은 대로 수정)
 
   # 3) 초안(_drafts) 기본값
   - scope:
