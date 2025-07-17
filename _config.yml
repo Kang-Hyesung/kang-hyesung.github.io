@@ -180,7 +180,7 @@ defaults:
 
   # Asp.Net Core
   - scope:
-      path: "_posts/asp.net.core"   # 여기만 변경
+      path: "_posts/asp.net core"   # 여기만 변경
       type: posts
     values:
       categories: ["CSharp","Asp.Net Core"]  # 카테고리 이름(사용하고 싶은 대로 수정)
