@@ -2,7 +2,6 @@
 title: "[C#] MiddleWare"
 author: hyesung
 date: 2025-07-16 12:00:00 +0900
-categories: [CSharp,Asp.Net Core]
 pin: false
 math: false
 mermaid: false

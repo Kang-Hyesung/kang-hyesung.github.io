@@ -168,23 +168,33 @@ collections:
     sort_by: order
 
 defaults:
+  # 1) 전체 포스트 기본값
   - scope:
-      path: "" # An empty string here means all files in the project
+      path: ""       # 프로젝트 내 모든 파일
       type: posts
     values:
       layout: post
-      comments: true # Enable comments in posts.
-      toc: true # Display TOC column in posts.
-      # DO NOT modify the following parameter unless you are confident enough
-      # to update the code of all other post links in this project.
+      comments: true
+      toc: true
       permalink: /posts/:title/
+
+  # 2) Asp.Net Core 폴더 안 글에만 categories 자동 지정
+  - scope:
+      path: "_posts/asp-net-core"   # 여기만 변경
+      type: posts
+    values:
+      categories: ["CSharp","asp-net-core"]  # 카테고리 이름(사용하고 싶은 대로 수정)
+
+  # 3) 초안(_drafts) 기본값
   - scope:
       path: _drafts
     values:
       comments: false
+
+  # 4) tabs 컬렉션 기본값
   - scope:
       path: ""
-      type: tabs # see `site.collections`
+      type: tabs
     values:
       layout: page
       permalink: /:title/
