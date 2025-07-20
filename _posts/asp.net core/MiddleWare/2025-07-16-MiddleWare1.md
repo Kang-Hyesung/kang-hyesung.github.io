@@ -1,5 +1,5 @@
 ---
-title: "[C#] MiddleWare"
+title: "[1] Middleware 개요"
 author: hyesung
 date: 2025-07-16 12:00:00 +0900
 pin: false
