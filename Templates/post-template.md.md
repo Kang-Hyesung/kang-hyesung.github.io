@@ -11,8 +11,8 @@ tR += `---
 title: "${title}"
 date: ${datetime}
 author: "hyesung"
+description: "설명"
 ---
 
 `;
 %>
-<!-- 본문 작성 시작 -->
