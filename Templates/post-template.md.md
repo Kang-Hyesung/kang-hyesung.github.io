@@ -4,7 +4,7 @@ const date  = tp.date.now("YYYY-MM-DD");
 const slug  = title.trim().replace(/\s+/g, "-").toLowerCase();
 
 // 파일명만 변경: 경로 없이
-await tp.file.rename(`${date}-${slug}.md`);
+await tp.file.rename(`${date}-${slug}`);
 
 const datetime = tp.date.now("YYYY-MM-DD HH:mm ZZ");
 tR += `---
