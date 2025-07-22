@@ -190,6 +190,12 @@ defaults:
       type: posts
     values:
       categories: ["Asp.Net Core","MiddleWare"]  # 카테고리 이름(사용하고 싶은 대로 수정)
+  # Routing
+  - scope:
+      path: "_posts/asp.net core/Routing"   # 여기만 변경
+      type: posts
+    values:
+      categories: ["Asp.Net Core","Routing"]  # 카테고리 이름(사용하고 싶은 대로 수정)
   # Blogging
   - scope:
       path: "_posts/blogging"   # 여기만 변경
