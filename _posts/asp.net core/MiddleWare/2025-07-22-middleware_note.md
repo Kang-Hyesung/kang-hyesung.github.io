@@ -1,5 +1,5 @@
 ---
-title: middleware_note
+title: "[7] Middleware 단원 총정리"
 date: 2025-07-22 18:06 +0900
 author: hyesung
 ---
@@ -51,6 +51,7 @@ app.Run();
 ```
 
 이 코드에서는 **첫 번째 `app.Run` 미들웨어만 실행**된다. "Hello"를 응답에 작성함으로써 파이프라인을 종료하고, 다음 `app.Run` (이는 "Hello again"을 작성할 것임)은 실행될 기회를 얻지 못한다.
+
 **설명**: **`app.Run`**은 미들웨어 체인을 **단락**시키기 때문에, 여러 개의 **`app.Run`**을 연속해서 사용하면 첫 번째 **`app.Run`**만 동작하고 그 뒤의 **`app.Run`**은 무시된다.
 
 #### 코드 2: `app.Use`와 `app.Run`을 이용한 미들웨어 연결
