@@ -180,7 +180,7 @@ Middleware 1 - End
 
 -----
 
-### **Java Spring에서는? (Filter와 Interceptor)**
+### **Java Spring (Filter와 Interceptor)**
 
 ASP.NET Core의 미들웨어와 같은 **횡단 관심사 처리** 개념은 Java Spring 생태계에도 존재한다. Spring에서는 주로 **서블릿 필터(Servlet Filter)**와 **핸들러 인터셉터(Handler Interceptor)**라는 두 가지 기술을 사용한다.
 
