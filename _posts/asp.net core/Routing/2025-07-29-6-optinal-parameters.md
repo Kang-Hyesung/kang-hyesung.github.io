@@ -13,7 +13,7 @@ ASP.NET Core 라우팅 시스템은 이러한 시나리오를 '선택적 매개�
 
 하지만 요구사항에 따라 ID가 없는 요청도 정상적으로 처리하고 싶을 때가 있다. "ID가 제공되지 않았습니다"와 같은 안내 메시지를 보여주거나, 전체 상품 목록을 보여주는 등의 다른 로직을 수행해야 할 수 있다.
 
-## ✅ 해결책: C#의 선택적 라우트 매개변수 `?`
+## ✅ 해결책: C#의 선택적 라우트 매개변수 ?
 
 ASP.NET Core에서는 라우트 매개변수 이름 뒤에 물음표(`?`)를 붙이는 것만으로 간단하게 이 문제를 해결할 수 있다.
 
@@ -48,10 +48,10 @@ endpoints.Map("products/details/{id?}", async context => {
 
 ---
 
-## ☕ Java Spring에서는? `@PathVariable`과 `Optional`
+## ☕ Java Spring에서는? @PathVariable과 Optional
 
 그렇다면 Java Spring 환경에서는 이러한 선택적 경로 변수를 어떻게 다룰까? Spring MVC에서는 `@PathVariable` 어노테이션을 사용하여 URL의 일부를 매개변수로 받아온다.
-핵심은 Java 8에서 도입된 **`Optional<T>`** 클래스를 함께 사용하는 것이다. 이는 '값이 없을 수도 있는' 변수를 명확하게 표현하는 가장 현대적이고 권장되는 방식이다.
+핵심은 Java 8에서 도입된 **`Optional<T>`** 클래스를 함께 사용하는 것이다. 이는 '값이 없을 수도 있는' 변수를 명확하게 표현하는 방식이다.
 
 ```java
 import org.springframework.web.bind.annotation.GetMapping;
