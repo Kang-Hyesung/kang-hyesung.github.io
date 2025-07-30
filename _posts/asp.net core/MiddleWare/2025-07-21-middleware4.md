@@ -187,7 +187,7 @@ ASP.NET Core의 미들웨어와 같은 **횡단 관심사 처리** 개념은 Jav
 #### **1. 서블릿 필터 (Servlet Filter)**
 
   - **개념**: `Filter`는 Spring 프레임워크의 가장 바깥 단, 즉 **서블릿 컨테이너(Servlet Container) 레벨**에서 동작한다. 요청이 Spring의 핵심인 `DispatcherServlet`에 도달하기 **전**에 가로챈다.
-  - **C\# 매핑**: ASP.NET Core의 **미들웨어와 가장 유사한 개념**이다.
+  - **C\# 예시**: ASP.NET Core의 **미들웨어와 가장 유사한 개념**이다.
   - **주요 용도**: 인코딩 변환, 보안(예: Spring Security), 전체 요청/응답 로깅 등 애플리케이션 전반에 걸친 저수준 처리에 적합하다.
 
 **Java 예시 코드:**
@@ -213,7 +213,7 @@ public class LogFilter implements Filter {
 #### **2. 핸들러 인터셉터 (Handler Interceptor)**
 
   - **개념**: `Interceptor`는 `DispatcherServlet`이 요청을 받은 **후**, 컨트롤러의 특정 핸들러 메서드(`@GetMapping`, `@PostMapping` 등)를 실행하기 **전과 후**에 개입한다.
-  - **C\# 매핑**: 미들웨어보다 더 **애플리케이션(MVC) 계층에 특화된** 버전이라고 볼 수 있다.
+  - **C\# 예시**: 미들웨어보다 더 **애플리케이션(MVC) 계층에 특화된** 버전이라고 볼 수 있다.
   - **주요 용도**: 특정 URL 패턴에만 적용되는 인증/인가 체크, 컨트롤러로 넘어가는 데이터의 전처리, API 성능 측정 등 비즈니스 로직과 더 가까운 작업에 사용된다. Spring 컨텍스트에 접근하기 용이하다.
 
 **Java 예시 코드:**
