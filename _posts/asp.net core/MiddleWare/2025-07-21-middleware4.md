@@ -166,17 +166,21 @@ Middleware 1 Completed!
 
 -----
 
+알겠습니다. 요청하신 대로 모든 문장의 끝을 `~다.`로 통일하여, 보다 전문적이고 일관된 톤의 기술 문서 스타일로 수정했습니다.
+
+-----
+
 ## **[C\#] ASP.NET Core 미들웨어(Middleware) 완벽 가이드: C\#부터 Java Spring까지**
 
 ### **도입**
 
-웹 애플리케이션을 개발할 때, 모든 요청에 공통적으로 적용해야 하는 기능들이 있습니다. 예를 들어, 모든 요청에 대한 로그(Log)를 남기거나, 사용자의 인증(Authentication) 상태를 확인하고, 특정 IP의 접근을 차단하는 등의 기능이 그렇습니다. 이러한 \*\*횡단 관심사(Cross-Cutting Concerns)\*\*를 효율적으로 처리하기 위해 ASP.NET Core는 **미들웨어(Middleware)** 라는 강력한 파이프라인(Pipeline) 모델을 제공합니다.
+웹 애플리케이션을 개발할 때, 모든 요청에 공통적으로 적용해야 하는 기능들이 있다. 예를 들어, 모든 요청에 대한 로그(Log)를 남기거나, 사용자의 인증(Authentication) 상태를 확인하고, 특정 IP의 접근을 차단하는 등의 기능이 그렇다. 이러한 \*\*횡단 관심사(Cross-Cutting Concerns)\*\*를 효율적으로 처리하기 위해 ASP.NET Core는 **미들웨어(Middleware)** 라는 강력한 파이프라인(Pipeline) 모델을 제공한다.
 
-이번 포스트에서는 ASP.NET Core에서 커스텀 미들웨어를 직접 정의하고, 요청 파이프라인에 등록하여 사용하는 전체 과정을 단계별로 알아봅니다. 또한, 이러한 개념이 **Java Spring 환경**에서는 어떤 기술(Filter, Interceptor)로 구현되는지 비교하여 폭넓은 이해를 돕고자 합니다.
+이번 포스트에서는 ASP.NET Core에서 커스텀 미들웨어를 직접 정의하고, 요청 파이프라인에 등록하여 사용하는 전체 과정을 단계별로 알아본다. 또한, 이러한 개념이 **Java Spring 환경**에서는 어떤 기술(Filter, Interceptor)로 구현되는지 비교하여 폭넓은 이해를 돕고자 한다.
 
 ### **1. 커스텀 미들웨어의 정의 (`IMiddleware`)**
 
-가장 먼저 요청 처리 흐름에 개입할 우리만의 미들웨어 클래스를 정의해야 합니다. 이 클래스는 반드시 `IMiddleware` 인터페이스를 구현해야 프레임워크가 미들웨어로 인식할 수 있습니다.
+가장 먼저 요청 처리 흐름에 개입할 우리만의 미들웨어 클래스를 정의해야 한다. 이 클래스는 반드시 `IMiddleware` 인터페이스를 구현해야 프레임워크가 미들웨어로 인식할 수 있다.
 
 ```csharp
 // MiddlewareExample/CustomMiddleware/MyCustomMiddleware.cs
@@ -208,20 +212,20 @@ namespace MiddlewareExample.CustomMiddleware
 }
 ```
 
-  - **`IMiddleware` 인터페이스**: 프레임워크가 미들웨어를 인식하고 **의존성 주입(Dependency Injection, DI)** 컨테이너를 통해 생명주기를 관리할 수 있도록 하는 핵심 인터페이스입니다.
+  - **`IMiddleware` 인터페이스**: 프레임워크가 미들웨어를 인식하고 **의존성 주입(Dependency Injection, DI)** 컨테이너를 통해 생명주기를 관리할 수 있도록 하는 핵심 인터페이스다.
   - **`InvokeAsync(HttpContext context, RequestDelegate next)` 메서드**:
-      - `HttpContext context`: 현재 HTTP 요청과 응답에 대한 모든 정보(헤더, 바디, 쿼리스트링 등)를 담고 있는 객체입니다.
-      - `RequestDelegate next`: 파이프라인의 **다음 미들웨어를 가리키는 대리자(Delegate)** 입니다. `await next(context);`를 호출하면 제어 흐름이 다음 미들웨어로 넘어갑니다. 이 호출이 없다면 파이프라인은 여기서 멈추게 됩니다(단락, Short-circuit).
+      - `HttpContext context`: 현재 HTTP 요청과 응답에 대한 모든 정보(헤더, 바디, 쿼리스트링 등)를 담고 있는 객체다.
+      - `RequestDelegate next`: 파이프라인의 **다음 미들웨어를 가리키는 대리자(Delegate)** 이다. `await next(context);`를 호출하면 제어 흐름이 다음 미들웨어로 넘어간다. 이 호출이 없다면 파이프라인은 여기서 멈추게 된다(단락, Short-circuit).
 
 -----
 
 ### **2. 미들웨어 등록과 확장 메서드의 마법**
 
-미들웨어를 정의했다면, 이제 애플리케이션이 이를 사용할 수 있도록 등록해야 합니다.
+미들웨어를 정의했다면, 이제 애플리케이션이 이를 사용할 수 있도록 등록해야 한다.
 
 #### **2.1. DI 컨테이너에 서비스로 등록하기**
 
-`IMiddleware`를 구현한 클래스는 생성자의 매개변수를 통해 다른 서비스를 주입받을 수 있습니다. 이를 위해 반드시 DI 컨테이너에 등록되어야 합니다. `Program.cs` 파일에서 다음과 같이 등록할 수 있습니다.
+`IMiddleware`를 구현한 클래스는 생성자의 매개변수를 통해 다른 서비스를 주입받을 수 있다. 이를 위해 반드시 DI 컨테이너에 등록되어야 한다. `Program.cs` 파일에서 다음과 같이 등록할 수 있다.
 
 ```csharp
 // Program.cs
@@ -238,7 +242,7 @@ builder.Services.AddTransient<MyCustomMiddleware>();
 
 #### **2.2. 가독성을 높이는 확장 메서드 (`UseMyCustomMiddleware`)**
 
-ASP.NET Core는 `app.UseAuthentication()`, `app.UseAuthorization()`처럼 직관적인 메서드로 미들웨어를 등록합니다. 우리도 이처럼 간결한 코드를 위해 \*\*확장 메서드(Extension Method)\*\*를 만드는 것이 좋습니다.
+ASP.NET Core는 `app.UseAuthentication()`, `app.UseAuthorization()`처럼 직관적인 메서드로 미들웨어를 등록한다. 우리도 이처럼 간결한 코드를 위해 \*\*확장 메서드(Extension Method)\*\*를 만드는 것이 좋다.
 
 ```csharp
 // MiddlewareExample/CustomMiddleware/CustomMiddlewareExtension.cs
@@ -261,14 +265,14 @@ namespace MiddlewareExample.CustomMiddleware
 }
 ```
 
-  - **`this IApplicationBuilder app`**: `IApplicationBuilder` 타입의 객체에서 `UseMyCustomMiddleware()` 메서드를 마치 원래 있던 멤버 메서드처럼 호출할 수 있게 해주는 핵심 구문입니다.
-  - **`Use` 접두사**: ASP.NET Core의 미들웨어 확장 메서드는 관례적으로 `Use`로 시작합니다. 이 규칙을 따르면 코드의 일관성과 가독성이 크게 향상됩니다.
+  - **`this IApplicationBuilder app`**: `IApplicationBuilder` 타입의 객체에서 `UseMyCustomMiddleware()` 메서드를 마치 원래 있던 멤버 메서드처럼 호출할 수 있게 해주는 핵심 구문이다.
+  - **`Use` 접두사**: ASP.NET Core의 미들웨어 확장 메서드는 관례적으로 `Use`로 시작한다. 이 규칙을 따르면 코드의 일관성과 가독성이 크게 향상된다.
 
 -----
 
 ### **3. 요청 파이프라인 구성 및 실행 흐름 분석**
 
-이제 `Program.cs`에서 우리가 만든 확장 메서드를 사용하여 전체 요청 파이프라인을 구성하고, 그 실행 흐름을 깊이 있게 살펴보겠습니다.
+이제 `Program.cs`에서 우리가 만든 확장 메서드를 사용하여 전체 요청 파이프라인을 구성하고, 그 실행 흐름을 깊이 있게 살펴본다.
 
 ```csharp
 // Program.cs
@@ -301,35 +305,35 @@ app.Run();
 
 #### **실행 흐름 시연**
 
-위 코드는 요청이 들어왔을 때 다음과 같은 "양파 껍질(Onion-like)" 구조로 동작합니다.
+위 코드는 요청이 들어왔을 때 다음과 같은 "양파 껍질(Onion-like)" 구조로 동작한다.
 
 1.  **요청 시작 → `Middleware 1` 진입**
 
-      - `"Middleware 1 - Start"`가 응답에 기록됩니다.
-      - `await next(context)`를 만나 제어권을 `MyCustomMiddleware`로 넘깁니다.
+      - `"Middleware 1 - Start"`가 응답에 기록된다.
+      - `await next(context)`를 만나 제어권을 `MyCustomMiddleware`로 넘긴다.
 
 2.  **`MyCustomMiddleware` 진입**
 
-      - `InvokeAsync` 메서드의 `next` 호출 전 로직이 실행되어 `"Custom Middleware Executed!"`가 기록됩니다.
-      - 다시 `await next(context)`를 만나 제어권을 터미널 미들웨어로 넘깁니다.
+      - `InvokeAsync` 메서드의 `next` 호출 전 로직이 실행되어 `"Custom Middleware Executed!"`가 기록된다.
+      - 다시 `await next(context)`를 만나 제어권을 터미널 미들웨어로 넘긴다.
 
 3.  **`Terminal Middleware` 실행**
 
-      - `app.Run`으로 등록된 마지막 미들웨어가 실행되어 `"Terminal Middleware (Last)"`가 기록됩니다.
-      - `app.Run`은 `next`를 호출하지 않으므로 여기서 파이프라인은 "반환"을 시작합니다.
+      - `app.Run`으로 등록된 마지막 미들웨어가 실행되어 `"Terminal Middleware (Last)"`가 기록된다.
+      - `app.Run`은 `next`를 호출하지 않으므로 여기서 파이프라인은 "반환"을 시작한다.
 
 4.  **`MyCustomMiddleware`로 제어 복귀**
 
-      - `await next(context)` 호출이 끝났으므로, 그 다음 라인인 `"Custom Middleware Completed!"`가 기록됩니다. `MyCustomMiddleware`의 역할이 끝납니다.
+      - `await next(context)` 호출이 끝났으므로, 그 다음 라인인 `"Custom Middleware Completed!"`가 기록된다. `MyCustomMiddleware`의 역할이 끝난다.
 
 5.  **`Middleware 1`로 제어 복귀**
 
-      - `MyCustomMiddleware`가 끝났으므로, `Middleware 1`의 `await next(context)` 호출이 끝난 것으로 간주됩니다.
-      - 그 다음 라인인 `"Middleware 1 - End"`가 기록됩니다. `Middleware 1`의 역할도 끝납니다.
+      - `MyCustomMiddleware`가 끝났으므로, `Middleware 1`의 `await next(context)` 호출이 끝난 것으로 간주된다.
+      - 그 다음 라인인 `"Middleware 1 - End"`가 기록된다. `Middleware 1`의 역할도 끝난다.
 
 #### **최종 응답 결과**
 
-클라이언트가 받는 최종 응답 본문은 아래와 같습니다.
+클라이언트가 받는 최종 응답 본문은 아래와 같다.
 
 ```
 Middleware 1 - Start
@@ -343,13 +347,13 @@ Middleware 1 - End
 
 ### **Java Spring에서는? (Filter와 Interceptor)**
 
-ASP.NET Core의 미들웨어와 같은 **횡단 관심사 처리** 개념은 Java Spring 생태계에도 존재합니다. Spring에서는 주로 \*\*서블릿 필터(Servlet Filter)\*\*와 \*\*핸들러 인터셉터(Handler Interceptor)\*\*라는 두 가지 기술을 사용합니다.
+ASP.NET Core의 미들웨어와 같은 **횡단 관심사 처리** 개념은 Java Spring 생태계에도 존재한다. Spring에서는 주로 \*\*서블릿 필터(Servlet Filter)\*\*와 \*\*핸들러 인터셉터(Handler Interceptor)\*\*라는 두 가지 기술을 사용한다.
 
 #### **1. 서블릿 필터 (Servlet Filter)**
 
-  - **개념**: `Filter`는 Spring 프레임워크의 가장 바깥 단, 즉 **서블릿 컨테이너(Servlet Container) 레벨**에서 동작합니다. 요청이 Spring의 핵심인 `DispatcherServlet`에 도달하기 **전**에 가로챕니다.
-  - **C\# 매핑**: ASP.NET Core의 **미들웨어와 가장 유사한 개념**입니다.
-  - **주요 용도**: 인코딩 변환, 보안(예: Spring Security), 전체 요청/응답 로깅 등 애플리케이션 전반에 걸친 저수준 처리에 적합합니다.
+  - **개념**: `Filter`는 Spring 프레임워크의 가장 바깥 단, 즉 **서블릿 컨테이너(Servlet Container) 레벨**에서 동작한다. 요청이 Spring의 핵심인 `DispatcherServlet`에 도달하기 **전**에 가로챈다.
+  - **C\# 매핑**: ASP.NET Core의 **미들웨어와 가장 유사한 개념**이다.
+  - **주요 용도**: 인코딩 변환, 보안(예: Spring Security), 전체 요청/응답 로깅 등 애플리케이션 전반에 걸친 저수준 처리에 적합하다.
 
 **Java 예시 코드:**
 
@@ -373,9 +377,9 @@ public class LogFilter implements Filter {
 
 #### **2. 핸들러 인터셉터 (Handler Interceptor)**
 
-  - **개념**: `Interceptor`는 `DispatcherServlet`이 요청을 받은 **후**, 컨트롤러의 특정 핸들러 메서드(`@GetMapping`, `@PostMapping` 등)를 실행하기 **전과 후**에 개입합니다.
-  - **C\# 매핑**: 미들웨어보다 더 **애플리케이션(MVC) 계층에 특화된** 버전이라고 볼 수 있습니다.
-  - **주요 용도**: 특정 URL 패턴에만 적용되는 인증/인가 체크, 컨트롤러로 넘어가는 데이터의 전처리, API 성능 측정 등 비즈니스 로직과 더 가까운 작업에 사용됩니다. Spring 컨텍스트에 접근하기 용이합니다.
+  - **개념**: `Interceptor`는 `DispatcherServlet`이 요청을 받은 **후**, 컨트롤러의 특정 핸들러 메서드(`@GetMapping`, `@PostMapping` 등)를 실행하기 **전과 후**에 개입한다.
+  - **C\# 매핑**: 미들웨어보다 더 **애플리케이션(MVC) 계층에 특화된** 버전이라고 볼 수 있다.
+  - **주요 용도**: 특정 URL 패턴에만 적용되는 인증/인가 체크, 컨트롤러로 넘어가는 데이터의 전처리, API 성능 측정 등 비즈니스 로직과 더 가까운 작업에 사용된다. Spring 컨텍스트에 접근하기 용이하다.
 
 **Java 예시 코드:**
 
@@ -412,6 +416,6 @@ public class LogInterceptor implements HandlerInterceptor {
 
 ### **결론**
 
-ASP.NET Core의 미들웨어는 요청 파이프라인을 통해 애플리케이션의 공통 기능을 모듈화하는 강력하고 유연한 방법입니다. `IMiddleware` 구현, DI 컨테이너 등록, 그리고 확장 메서드를 통한 간결한 사용법은 체계적이고 유지보수하기 좋은 코드를 작성하는 데 큰 도움이 됩니다.
+ASP.NET Core의 미들웨어는 요청 파이프라인을 통해 애플리케이션의 공통 기능을 모듈화하는 강력하고 유연한 방법이다. `IMiddleware` 구현, DI 컨테이너 등록, 그리고 확장 메서드를 통한 간결한 사용법은 체계적이고 유지보수하기 좋은 코드를 작성하는 데 큰 도움이 된다.
 
-또한, Spring의 `Filter`와 `Interceptor` 개념을 통해 알 수 있듯, \*\*"요청의 흐름 중간에 개입하여 공통 로직을 처리한다"\*\*는 아이디어는 현대 웹 프레임워크의 핵심적인 디자인 패턴 중 하나입니다. 두 기술 스택의 유사점과 차이점을 이해한다면, 어떤 환경에서도 견고한 웹 애플리케이션을 설계하는 역량을 기를 수 있을 것입니다.
+또한, Spring의 `Filter`와 `Interceptor` 개념을 통해 알 수 있듯, **"요청의 흐름 중간에 개입하여 공통 로직을 처리한다"**는 아이디어는 현대 웹 프레임워크의 핵심적인 디자인 패턴 중 하나다. 두 기술 스택의 유사점과 차이점을 이해한다면, 어떤 환경에서도 견고한 웹 애플리케이션을 설계하는 역량을 기를 수 있다.
