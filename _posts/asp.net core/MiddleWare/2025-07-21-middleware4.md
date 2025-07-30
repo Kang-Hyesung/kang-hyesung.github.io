@@ -172,6 +172,8 @@ Middleware 1 Completed!
 
 ## **[C\#] ASP.NET Core 미들웨어(Middleware) 완벽 가이드: C\#부터 Java Spring까지**
 
+테스트123
+
 ### **도입**
 
 웹 애플리케이션을 개발할 때, 모든 요청에 공통적으로 적용해야 하는 기능들이 있다. 예를 들어, 모든 요청에 대한 로그(Log)를 남기거나, 사용자의 인증(Authentication) 상태를 확인하고, 특정 IP의 접근을 차단하는 등의 기능이 그렇다. 이러한 \*\*횡단 관심사(Cross-Cutting Concerns)\*\*를 효율적으로 처리하기 위해 ASP.NET Core는 **미들웨어(Middleware)** 라는 강력한 파이프라인(Pipeline) 모델을 제공한다.
