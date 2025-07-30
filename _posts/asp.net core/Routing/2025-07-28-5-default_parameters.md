@@ -174,7 +174,7 @@ public class ProductController {
 }
 ```
 
-**핵심 개념 매핑:**
+## 핵심 개념
 
 - **ASP.NET Core `endpoints.Map(".../{id=1}")`**: 라우트 정의에서 기본값을 직접 설정한다.
 - **Spring `@GetMapping` + `@PathVariable`**: `@GetMapping`의 `value` 속성에 경로 변수가 없는 URL(`"/products/details"`)과 있는 URL(`"/products/details/{id}"`)을 모두 등록한다. `@PathVariable`의 `required`를 `false`로 설정하고 `Optional<T>`로 파라미터를 받는다. 이후 코드 내에서 `orElse()` 메서드를 통해 기본값을 지정한다.
