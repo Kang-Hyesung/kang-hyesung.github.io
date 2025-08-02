@@ -15,7 +15,7 @@ timezone: Asia/Seoul  # 한국 시간대 설정
 
 title: Logseq # the main title
 
-tagline: 기록하는 삶을 살아보자 # it will display as the subtitle
+tagline: 그냥 해 # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   다양한 주제를 자유롭게
@@ -196,6 +196,12 @@ defaults:
       type: posts
     values:
       categories: ["Asp.Net Core","Routing"]  # 카테고리 이름(사용하고 싶은 대로 수정)
+  # Controller
+  - scope:
+      path: "_posts/asp.net core/Controller"   # 여기만 변경
+      type: posts
+    values:
+      categories: ["Asp.Net Core","Controller"]  # 카테고리 이름(사용하고 싶은 대로 수정)
   # Blogging
   - scope:
       path: "_posts/blogging"   # 여기만 변경
