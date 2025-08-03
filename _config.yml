@@ -209,6 +209,21 @@ defaults:
     values:
       categories: ["Blogging"]  # 카테고리 이름(사용하고 싶은 대로 수정)
   - scope:
+      path: "_posts/cert/Industrial Engineer"   # 여기만 변경
+      type: posts
+    values:
+      categories: ["자격증", "정보처리산업기사"]  # 카테고리 이름(사용하고 싶은 대로 수정)
+  - scope:
+      path: "_posts/computer science/os"   # 여기만 변경
+      type: posts
+    values:
+      categories: ["CS", "운영체제"]  # 카테고리 이름(사용하고 싶은 대로 수정)
+  - scope:
+      path: "_posts/etc"   # 여기만 변경
+      type: posts
+    values:
+      categories: ["잡다한 기록용 카테고리"]  # 카테고리 이름(사용하고 싶은 대로 수정)
+  - scope:
       path: "_posts/blogging/github_blogging"   # 여기만 변경
       type: posts
     values:
