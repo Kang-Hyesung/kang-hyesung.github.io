@@ -228,6 +228,11 @@ defaults:
       type: posts
     values:
       categories: ["Blogging","Github 블로그"]  # 카테고리 이름(사용하고 싶은 대로 수정)
+  - scope:
+      path: "_posts/life"   # 여기만 변경
+      type: posts
+    values:
+      categories: ["살아가는 얘기"]  # 카테고리 이름(사용하고 싶은 대로 수정)
   # 3) 초안(_drafts) 기본값
   - scope:
       path: _drafts
