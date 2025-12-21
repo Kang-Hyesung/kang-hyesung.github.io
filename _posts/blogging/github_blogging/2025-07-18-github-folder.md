@@ -3,6 +3,7 @@ title: Github 블로그 개시글 관리 팁
 author: hyesung
 date: 2025-07-18 12:00:00 +0900
 description: _posts 내 폴더구조를 구현해보자
+categories: ["Blogging","Github 블로그"] 
 ---
 
 ## 글을 작성하게 된 이유

@@ -3,6 +3,7 @@ title: 옵시디언 연동
 date: 2025-07-19 11:14 +0900
 author: hyesung
 description: 블로그 글을 옵시디언으로 편리하게 작성해보자
+categories: Blogging
 ---
 블로그를 구성하게 되면 대부분 VSCode 를 이용해서 프로젝트를 열 텐데, 마크다운 문법이 바로 적용되지 않아 불편할 때가 있다. 아래처럼..
 

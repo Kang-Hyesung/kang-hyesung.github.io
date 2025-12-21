@@ -4,6 +4,7 @@ author: hyesung
 date: 2025-07-18 11:33:00 +0800
 math: true
 mermaid: true
+categories: ["Blogging","Github 블로그"] 
 ---
 
 ## Headings

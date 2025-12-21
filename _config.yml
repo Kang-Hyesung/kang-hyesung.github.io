@@ -179,60 +179,74 @@ defaults:
       permalink: /posts/:title/
 
   # Asp.Net Core
-  - scope:
-      path: "_posts/asp.net core"   # 여기만 변경
-      type: posts
-    values:
-      categories: ["Asp.Net Core"]  # 카테고리 이름(사용하고 싶은 대로 수정)
-  # MiddleWare
-  - scope:
-      path: "_posts/asp.net core/MiddleWare"   # 여기만 변경
-      type: posts
-    values:
-      categories: ["Asp.Net Core","MiddleWare"]  # 카테고리 이름(사용하고 싶은 대로 수정)
-  # Routing
-  - scope:
-      path: "_posts/asp.net core/Routing"   # 여기만 변경
-      type: posts
-    values:
-      categories: ["Asp.Net Core","Routing"]  # 카테고리 이름(사용하고 싶은 대로 수정)
-  # Controller
-  - scope:
-      path: "_posts/asp.net core/Controller"   # 여기만 변경
-      type: posts
-    values:
-      categories: ["Asp.Net Core","Controller"]  # 카테고리 이름(사용하고 싶은 대로 수정)
-  # Blogging
-  - scope:
-      path: "_posts/blogging"   # 여기만 변경
-      type: posts
-    values:
-      categories: ["Blogging"]  # 카테고리 이름(사용하고 싶은 대로 수정)
-  - scope:
-      path: "_posts/cert/Industrial Engineer"   # 여기만 변경
-      type: posts
-    values:
-      categories: ["자격증", "정보처리산업기사"]  # 카테고리 이름(사용하고 싶은 대로 수정)
-  - scope:
-      path: "_posts/computer science/os"   # 여기만 변경
-      type: posts
-    values:
-      categories: ["CS", "운영체제"]  # 카테고리 이름(사용하고 싶은 대로 수정)
-  - scope:
-      path: "_posts/etc"   # 여기만 변경
-      type: posts
-    values:
-      categories: ["잡다한 기록용 카테고리"]  # 카테고리 이름(사용하고 싶은 대로 수정)
-  - scope:
-      path: "_posts/blogging/github_blogging"   # 여기만 변경
-      type: posts
-    values:
-      categories: ["Blogging","Github 블로그"]  # 카테고리 이름(사용하고 싶은 대로 수정)
-  - scope:
-      path: "_posts/life"   # 여기만 변경
-      type: posts
-    values:
-      categories: ["살아가는 얘기"]  # 카테고리 이름(사용하고 싶은 대로 수정)
+  # - scope:
+  #     path: "_posts/asp.net core"   # 여기만 변경
+  #     type: posts
+  #   values:
+  #     categories: ["Asp.Net Core"]  # 카테고리 이름(사용하고 싶은 대로 수정)
+  # # MiddleWare
+  # - scope:
+  #     path: "_posts/asp.net core/MiddleWare"   # 여기만 변경
+  #     type: posts
+  #   values:
+  #     categories: ["Asp.Net Core","MiddleWare"]  # 카테고리 이름(사용하고 싶은 대로 수정)
+  # # Routing
+  # - scope:
+  #     path: "_posts/asp.net core/Routing"   # 여기만 변경
+  #     type: posts
+  #   values:
+  #     categories: ["Asp.Net Core","Routing"]  # 카테고리 이름(사용하고 싶은 대로 수정)
+  # # Controller
+  # - scope:
+  #     path: "_posts/asp.net core/Controller"   # 여기만 변경
+  #     type: posts
+  #   values:
+  #     categories: ["Asp.Net Core","Controller"]  # 카테고리 이름(사용하고 싶은 대로 수정)
+
+  # # Controller
+  # - scope:
+  #     path: "_posts/java"   # 여기만 변경
+  #     type: posts
+  #   values:
+  #     categories: ["JAVA"]  # 카테고리 이름(사용하고 싶은 대로 수정)
+
+  # # Blogging
+  # - scope:
+  #     path: "_posts/blogging"   # 여기만 변경
+  #     type: posts
+  #   values:
+  #     categories: ["Blogging"]  # 카테고리 이름(사용하고 싶은 대로 수정)
+
+  # - scope:
+  #     path: "_posts/cert/Industrial Engineer"   # 여기만 변경
+  #     type: posts
+  #   values:
+  #     categories: ["자격증", "정보처리산업기사"]  # 카테고리 이름(사용하고 싶은 대로 수정)
+
+  # - scope:
+  #     path: "_posts/computer science/os"   # 여기만 변경
+  #     type: posts
+  #   values:
+  #     categories: ["CS", "운영체제"]  # 카테고리 이름(사용하고 싶은 대로 수정)
+
+  # - scope:
+  #     path: "_posts/etc"   # 여기만 변경
+  #     type: posts
+  #   values:
+  #     categories: ["잡다한 기록용 카테고리"]  # 카테고리 이름(사용하고 싶은 대로 수정)
+
+  # - scope:
+  #     path: "_posts/blogging/github_blogging"   # 여기만 변경
+  #     type: posts
+  #   values:
+  #     categories: ["Blogging","Github 블로그"]  # 카테고리 이름(사용하고 싶은 대로 수정)
+
+  # - scope:
+  #     path: "_posts/life"   # 여기만 변경
+  #     type: posts
+  #   values:
+  #     categories: ["살아가는 얘기"]  # 카테고리 이름(사용하고 싶은 대로 수정)
+
   # 3) 초안(_drafts) 기본값
   - scope:
       path: _drafts

@@ -2,7 +2,9 @@
 title: 텍스트 복사
 date: 2025-08-03 17:44 +0900
 author: hyesung
+categories: etc
 ---
+
 ```javascript
 // --- 스크립트 수집 도우미 코드 ---
 

@@ -3,6 +3,7 @@ title: "Java 산술 연산의 임시 결과 & 타입 프로모션(Type Promotion
 date: 2025-11-16 22:30 +0900
 author: "hyesung"
 description: "설명"
+categories: JAVA
 ---
 # Java 산술 연산의 임시 결과 & 타입 프로모션(Type Promotion) 완전 이해하기
 

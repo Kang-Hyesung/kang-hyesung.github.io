@@ -1,8 +1,9 @@
 ---
-title: "Lookup 배열 (Lookup Array)의 개념과 활용"
+title: Lookup 배열 (Lookup Array)의 개념과 활용
 date: 2025-12-21 16:33 +0900
-author: "hyesung"
-description: "설명"
+author: hyesung
+description: 설명
+categories: JAVA
 ---
 **Lookup 배열**은 데이터를 검색하거나 참조하기 위해 미리 계산된 값들을 배열로 구성하여 사용하는 프로그래밍 기법이다. 이는 복잡한 분기문(`if-else`, `switch-case`)을 대체하여 코드의 가독성을 획기적으로 높이고, 데이터의 양과 무관하게 일정한 성능을 보장하는 고성능 제어 체계 구축에 필수적이다.
 
