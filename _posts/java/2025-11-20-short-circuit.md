@@ -1,18 +1,10 @@
 ---
-title: "Short Circuit"
+title: Short Circuit
 date: 2025-11-20 21:51 +0900
-author: "hyesung"
-description: "설명"
+author: hyesung
+description: "단락 회로 평가 : 코드 효율성과 SQL 튜닝"
 categories: JAVA
 ---
-## Short Circuit (단락 회로 평가): 코드 효율성과 SQL 튜닝
-
-프로그래밍을 학습하거나 실무를 할 때 반드시 숙지해야 할 개념 중 하나가 \*\*Short Circuit(단락 회로 평가)\*\*이다. 이 개념은 자바(Java), C\# 같은 애플리케이션 언어뿐만 아니라 데이터베이스의 SQL 쿼리 성능 최적화에도 동일하게 적용되는 중요한 논리 법칙이다.
-
-이를 제대로 이해하면 불필요한 연산을 줄여 성능을 높일 수 있고, 의도치 않은 논리 오류를 사전에 방지할 수 있다.
-
------
-
 ### 1\. Short Circuit의 정의
 
 논리 연산식은 항상 **왼쪽에서 오른쪽(`->`)** 방향으로 평가된다. 이때 Short Circuit이란, **앞선 연산의 결과만으로 전체 식의 결과가 이미 확정된 경우, 뒤쪽의 남은 연산은 아예 실행하지 않고 건너뛰는 것**을 의미한다.

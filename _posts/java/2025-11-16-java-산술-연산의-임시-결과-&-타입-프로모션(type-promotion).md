@@ -2,11 +2,8 @@
 title: "Java 산술 연산의 임시 결과 & 타입 프로모션(Type Promotion)"
 date: 2025-11-16 22:30 +0900
 author: "hyesung"
-description: "설명"
 categories: JAVA
 ---
-# Java 산술 연산의 임시 결과 & 타입 프로모션(Type Promotion) 완전 이해하기
-
 ## 1. 들어가며  
 Java에서 산술 연산을 할 때는 눈에 보이지 않는 두 가지 일이 항상 벌어진다.
 
