@@ -4,10 +4,11 @@ date: 2026-01-01 18:15 +0900
 author: hyesung
 description:
 mermaid: true
+categories: JAVA
 ---
 ## 1. 참조(Reference)와 인스턴스(Instance)의 분리
 
-Java 입문자가 가장 많이 범하는 실수는 **참조 변수(Reference Variable)**와 **인스턴스(Instance)**를 동일시하는 것이다. 이 둘은 메모리 상에서 명확하게 분리되어 존재하며, 역할 또한 완전히 다르다.
+Java 입문자가 가장 많이 범하는 실수는 **참조 변수(Reference Variable)**와 **인스턴스(Instance)** 를 동일시하는 것이다. 이 둘은 메모리 상에서 명확하게 분리되어 존재하며, 역할 또한 완전히 다르다.
 
 * **참조 변수 (Reference)**: **스택(Stack)** 영역에 생성되며, 실제 데이터가 위치한 힙(Heap) 영역의 **주소값**을 담고 있는 '포인터' 역할을 한다.
 * **인스턴스 (Instance)**: `new` 연산자를 통해 **힙(Heap)** 영역에 생성된 실제 객체 덩어리다.
