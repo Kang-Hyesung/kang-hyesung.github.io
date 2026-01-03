@@ -3,372 +3,237 @@ title: Java 입력 처리와 Scanner 클래스
 date: 2025-11-13 20:01 +0900
 author: hyesung
 categories: JAVA 01-basic-syntax
+description: 사용자가 입력한 데이터가 메모리에 적재되고, 자바 프로그램이 이를 해석하여 변수에 담기까지의 과정
 ---
-## 1. 키보드 입력의 기본 개념
+## 1. 입력의 본질: 바이트에서 데이터로
 
-프로그래밍 언어에서 **입력(Input)** 을 다룰 때는 “키보드 코드(KeyCode)”, “스캔 코드(Scan Code)”, “버추얼 코드(Virtual Code)” 같은 용어가 자주 등장합니다.
-이런 단어들은 **키보드에서 발생한 신호를 어떻게 인식하고 해석하느냐**에 따라 유래된 것입니다.
+프로그래밍 관점에서 키보드 입력은 **스트림(Stream)** 의 형태를 띤다. 사용자가 키를 누르면 운영체제는 이를 '키보드 코드(KeyCode)'나 '스캔 코드(Scan Code)'로 인식하며, 최종적으로 프로그램에는 **문자(Character)** 혹은 **바이트(Byte)** 의 배열로 전달된다.
 
-즉, 사용자가 키를 누르면 해당 값이 **I/O 버퍼(Input/Output Buffer)** 에 저장되고, 이 값은 단순한 숫자 코드이지만 **문자열(String)** 로도, **정수(Integer)** 로도 해석될 수 있습니다.
+### 데이터의 흐름과 해석
 
-예를 들어 사용자가 `1`, `2`를 순서대로 입력했다면
-문자 `'1'`과 `'2'`로 입력되지만, 이를 하나로 묶어 정수 `12`로 해석할 수도 있습니다.
+입력된 데이터는 본질적으로 의미 없는 바이트의 연속이다. 예를 들어 사용자가 `1`과 `2`를 순서대로 입력했다면, 메모리에는 문자 '1'과 '2'가 저장된다.
 
-이런 변환 과정을 자동으로 처리해주는 도구가 바로 **`Scanner` 클래스**입니다.
+> **Raw Data:** '1', '2'  
+> **Interpretation:** 이를 문자열 "12"로 볼지, 정수 12로 볼지는 **해석기(Parser)** 의 역할이다.
+
+이러한 복잡한 변환 과정을 추상화하여 개발자가 쉽게 사용할 수 있도록 제공하는 도구가 바로 Java의 `Scanner` 클래스이다.
 
 ---
 
-## 2. `Scanner` 클래스의 역할
+## 2. System.in과 Scanner의 관계
 
-`Scanner`는 자바에서 입력된 문자열을 **다양한 형태(정수, 실수, 문자열 등)** 로 해석해주는 클래스입니다.
-즉, “문자열 형태로 들어온 데이터를 적절히 변환”하는 역할을 수행합니다.
+Java에서 입력을 다룰 때 가장 먼저 마주하는 코드는 `new Scanner(System.in)`이다. 이 코드가 의미하는 바를 정확히 이해하기 위해 `System.in`과 `Scanner`를 분리하여 살펴본다.
 
-* 입력 대상은 반드시 지정해야 합니다.
-  키보드 입력을 처리할 경우 다음과 같이 작성합니다:
+### 2.1 System.in: 표준 입력 스트림 (Standard Input Stream)
+
+`System.in`은 `java.lang.System` 클래스의 정적 필드(static field)로, 키보드와 연결된 **표준 입력 스트림(InputStream)** 이다.
+
+* **역할:** 운영체제(OS)로부터 키보드 입력 값을 **바이트(Byte)** 단위로 읽어온다.
+* **한계:** 바이트 단위로만 데이터를 읽기 때문에, 한글 같은 2바이트 이상의 문자나 정수/실수 같은 타입으로 직접 변환하기가 매우 번거롭다.
+
+### 2.2 Scanner: 고수준 래퍼 (High-Level Wrapper)
+
+`Scanner`는 `System.in`이 읽어온 날것의 바이트 데이터를 우리가 원하는 데이터 타입(`int`, `double`, `String` 등)으로 변환(Parsing) 해주는 역할을 한다.
 
 ```java
-Scanner s = new Scanner(System.in);
-```
+import java.util.Scanner; // 패키지는 자바 클래스들의 논리적 묶음
 
-* `System.in` : 키보드 입력 스트림(`InputStream`)
-* `Scanner` : 이 입력 스트림을 해석하는 클래스
-
----
-
-## 3. `Scanner` 클래스 선언 방식
-
-클래스 기반 객체이므로 반드시 `new` 연산자를 사용해 인스턴스를 생성해야 합니다.
-
-```java
-Scanner s = new Scanner(System.in);
-```
-
-여기서
-
-* `s`는 **참조 변수(reference variable)** 로, `Scanner` 인스턴스를 가리킵니다.
-* `new`는 **힙 메모리 영역**에 새로운 객체를 생성합니다.
-
----
-
-## 4. 입력 해석 과정 이해하기
-
-다음 예제를 살펴보겠습니다.
-
-```java
-Scanner s = new Scanner(System.in);
-
-int a = s.nextInt();
-double b = s.nextDouble();
-
-System.out.println("A = " + a);
-System.out.println("B = " + b);
-```
-
-입력 예시:
+// System.in(바이트 스트림)을 Scanner(파서)에 전달하여 객체 생성
+Scanner sc = new Scanner(System.in);
 
 ```
-3 3.4
-```
 
-입력 흐름 설명:
+### 데이터 흐름 시각화
 
-1. 키보드에서 입력된 값은 버퍼에 저장됩니다.
-   예: `"3 3.4\n"`
-2. `nextInt()`가 실행되면, 버퍼의 처음부터 **정수 형태**로 해석 가능한 부분(`3`)까지만 읽습니다.
-3. **공백(` `)** 은 `Scanner`가 값을 구분할 때 사용하는 **separator(구분자)** 로 처리됩니다.
-4. 이어서 `nextDouble()`이 실행되면 남은 `"3.4"`를 **실수(double)** 로 해석합니다.
+```mermaid
+graph LR
+    A[User Keyboard] -->|Raw Bytes| B(OS Input Buffer);
+    B -->|System.in| C[Scanner Object];
+    C -->|Parsing methods| D["Variable (int, String)"];
+    
+    style B fill:#e1f5fe,stroke:#01579b
+    style C fill:#f9f,stroke:#333,stroke-width:2px
 
-결과 출력:
-
-```
-A = 3
-B = 3.4
 ```
 
 ---
 
-## 💡 `separator(구분자)`란?
+## 3. 입력 버퍼(Input Buffer)와 토큰(Token) 처리
 
-`separator`는 **입력 데이터 사이를 구분해주는 기준 문자**입니다.
-`Scanner`는 기본적으로 다음 세 가지를 구분자로 인식합니다:
+Scanner의 핵심 동작 원리는 **버퍼링(Buffering)** 과 **토크나이징(Tokenizing)** 이다.
 
-| 구분자               | 의미        |
-| ----------------- | --------- |
-| 공백 (`' '`)        | 단어 사이의 빈칸 |
-| 탭 (`'\t'`)        | 탭 문자      |
-| 개행 (`'\n'`, `엔터`) | 줄바꿈 문자    |
+### 3.1 입력 버퍼의 동작
 
-즉, `3 3.4`처럼 띄어쓰기로 구분하든,
-`3\t3.4`처럼 탭으로 구분하든,
-`3` 입력 후 엔터를 눌러 `3.4`를 입력하든 —
-모두 동일하게 두 개의 입력으로 인식됩니다.
+사용자가 데이터를 입력하고 Enter 키를 누르기 전까지 데이터는 I/O 버퍼에 대기한다. Enter를 누르는 순간 입력이 종료된 것으로 간주하며, 이때 Enter 키값은 **개행문자(\n)** 로 변환되어 버퍼의 끝에 저장된다.
 
-필요하다면 다음과 같이 `useDelimiter()` 메서드로 구분자를 직접 변경할 수도 있습니다:
+> **Deep Dive: 화이트스페이스(Whitespace)와 제어 문자**
+> 
+> 컴퓨터는 공백이나 줄바꿈도 하나의 문자로 취급한다. 이를 화이트스페이스라고 하며, Scanner는 이를 데이터를 나누는 기준으로 사용한다.
+> * **Space (' '):** 단어 사이의 공백
+> * **Tab (\t):** 탭 문자
+> * **Newline (\n, \r):** 줄바꿈 문자 (Enter 입력 시 생성)
+{: .prompt-info }
+> 
+> 
+
+### 3.2 토큰(Token)과 구분자(Separator)
+
+토큰은 구분자로 잘라낸 데이터의 최소 단위이다. `Scanner`는 기본적으로 공백, 탭, 개행을 구분자로 사용한다.
+
+**예제 코드: 입력 해석 과정**
 
 ```java
-Scanner s = new Scanner(System.in);
-s.useDelimiter(","); // 쉼표(,)를 구분자로 사용
+Scanner sc = new Scanner(System.in);
 
-int a = s.nextInt();
-int b = s.nextInt();
-```
-
-입력 예시:
+// 입력값 가정: "3 3.4" (엔터)
+int a = sc.nextInt();        // 1. 정수 3을 읽음
+double b = sc.nextDouble(); // 2. 실수 3.4를 읽음
 
 ```
-10,20
-```
 
-출력:
+**내부 처리 순서:**
 
-```
-a = 10
-b = 20
-```
+1. **버퍼 상태:** `['3', ' ', '3', '.', '4', '\n']`
+2. **nextInt() 호출:** 공백 전까지 읽어 '3'을 가져오고 정수 3으로 변환한다. (남은 버퍼: `[' ', '3', '.', '4', '\n']`)
+3. **nextDouble() 호출:** 선행 공백(' ')을 무시하고 '3.4'를 읽어 실수 3.4로 변환한다.
 
 ---
 
-## 5. 입력 오류와 예외 처리
+## 4. next() vs nextLine(): 결정적 차이
 
-문제 상황 예시:
+Scanner 사용 시 가장 많이 발생하는 버그는 `next()` 계열 메서드와 `nextLine()`을 혼용할 때 발생한다. 두 메서드는 **개행문자(\n)** 처리 방식이 다르다.
+
+| 메서드 | 읽는 단위 | 개행문자(\n) 처리 | 공백 포함 여부 |
+| --- | --- | --- | --- |
+| **next() / nextInt()** | 토큰 단위 | 읽지 않음 (버퍼에 남김) | ❌ (공백에서 멈춤) |
+| **nextLine()** | 라인 단위 | 읽어서 소비함 (버퍼에서 제거) | ✅ (줄 끝까지 포함) |
+
+> **주의: Ghost Enter 문제**
+> 
+> `nextInt()`로 숫자를 입력받은 후 곧바로 `nextLine()`을 호출하면, `nextInt()`가 남겨둔 개행문자(\n)를 `nextLine()`이 읽어버려 빈 문자열을 리턴하고 즉시 종료되는 현상이 발생한다.
+> **해결책:** `nextInt()`와 `nextLine()` 사이에 `sc.nextLine()`을 한 번 더 호출하여 버퍼의 개행문자를 비워야 한다.
+{: .prompt-warning }
+
+---
+
+## 5. 예외 처리와 견고한 입력 (Robust Input Handling)
+
+자바에서 예외(Exception)는 프로그램 실행 중 발생하는 '비정상적인 상황'이다. Scanner 사용 시 발생할 수 있는 예외를 깊이 이해하고 방어하는 것은 안정적인 애플리케이션의 필수 조건이다.
+
+### 5.1 Scanner의 주요 예외 (Exceptions)
+
+Scanner가 던지는 예외들은 대부분 **Unchecked Exception (RuntimeException)** 이다. 컴파일러가 강제하지 않기 때문에 개발자가 주의하지 않으면 런타임 에러로 프로그램이 종료될 수 있다.
+
+| 예외 클래스                     | 발생 원인                                | 해결 전략                     |
+| -------------------------- | ------------------------------------ | ------------------------- |
+| **InputMismatchException** | 기대한 타입(예: int)과 실제 입력(예: String) 불일치 | 버퍼 비우기(`next()`) 및 재입력 유도 |
+| **NoSuchElementException** | 더 이상 읽을 토큰이 없는데 읽으려 할 때              | `hasNext()` 계열 메서드로 사전 확인 |
+| **IllegalStateException**  | 이미 닫힌(closed) Scanner를 사용하려 할 때      | `close()` 호출 시점 관리 주의     |
+
+### 5.2 전략 1: 사후 처리 (try-catch)
+
+입력을 일단 시도하고, 에러가 발생하면 잡는 방식이다. 중요한 점은 에러 발생 후 버퍼에 남은 **'잘못된 입력값'** 을 반드시 비워줘야 한다는 것이다.
 
 ```java
-int a = s.nextInt(); // 정수를 기대
-```
-
-그런데 사용자가 `abc`를 입력하면?
-
-```
-InputMismatchException
-```
-
-즉, 정수를 기대했는데 문자가 들어오면 **런타임 오류(Runtime Error)** 가 발생합니다.
-이 오류는 **컴파일 시점에는 잡히지 않습니다.**
-
-해결 방법 → **예외 처리(Exception Handling)**
-
-```java
+Scanner sc = new Scanner(System.in);
 try {
-    int a = s.nextInt();
-    System.out.println("A = " + a);
-} catch (Exception e) {
-    System.out.println("에러: 잘못된 입력입니다.");
+    System.out.print("나이를 입력하세요: ");
+    int age = sc.nextInt(); // "abc" 입력 시 예외 발생
+    System.out.println("나이: " + age);
+} catch (java.util.InputMismatchException e) {
+    System.out.println("에러: 숫자가 아닌 값이 입력되었습니다.");
+    sc.nextLine(); // [핵심] 버퍼에 남은 "abc"와 엔터를 비워줌 (Flush)
 }
+
 ```
 
-입력값이 잘못되면 프로그램이 종료되지 않고 예외 메시지를 출력한 뒤 정상적으로 흐름이 이어집니다.
+### 5.3 전략 2: 사전 검증 (hasNext - 권장)
 
----
+예외 처리는 시스템 비용(Cost)이 비싸다. 따라서 에러가 나기 전에 미리 확인(Validation) 하는 것이 성능과 안정성 면에서 더 유리하다.
 
-## 6. `Scanner` 관련 팁
+> **Deep Dive: 룩어헤드(Lookahead) 메커니즘**
+> 
+> `hasNextInt()`는 입력 버퍼를 소비하지 않고 **미리보기(Peek)** 만 수행한다. 검증에 실패(false)하더라도 잘못된 데이터는 버퍼에 그대로 남아있으므로, 반드시 `next()`로 꺼내서 버려야 무한 루프를 방지할 수 있다.
+{: .prompt-info }
 
-| 메서드                          | 설명                 |
-| ---------------------------- | ------------------ |
-| `next()`                     | 공백 전까지의 문자열을 읽음    |
-| `nextLine()`                 | 한 줄 전체를 읽음 (공백 포함) |
-| `nextInt()`                  | 정수 입력 읽기           |
-| `nextDouble()`               | 실수 입력 읽기           |
-| `useDelimiter(String regex)` | 사용자 정의 구분자 설정      |
-| `hasNextInt()`               | 다음 입력이 정수인지 확인     |
-| `hasNextDouble()`            | 다음 입력이 실수인지 확인     |
-
----
-
-## 7. `import` 구문 자동 삽입
-
-IDE(예: IntelliJ, Eclipse)에서 `Scanner`를 처음 입력하면 자동으로 다음 구문이 삽입됩니다:
+**[견고한 입력 패턴 예시]**
 
 ```java
 import java.util.Scanner;
+
+public class SafeInputExample {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number = 0;
+
+        System.out.print("정수를 입력하세요: ");
+
+        // [Validation] 정수가 들어올 때까지 반복
+        while (!sc.hasNextInt()) {
+            // [Flush] 잘못된 입력을 읽어서 버림 (이 과정이 없으면 무한루프)
+            String trash = sc.next(); 
+            System.out.println("[오류] '" + trash + "'는 정수가 아닙니다.");
+            System.out.print("다시 입력해주세요: ");
+        }
+
+        // 안전하게 정수 읽기
+        number = sc.nextInt(); 
+        System.out.println("입력 성공: " + number);
+        
+        sc.close();
+    }
+}
+
 ```
 
-이는 `Scanner` 클래스가 **`java.util` 패키지**에 포함되어 있기 때문입니다.
-패키지는 자바 클래스들의 논리적 묶음(모듈 단위)입니다.
+### 5.4 리소스 관리: try-with-resources
 
----
-
-## 8. 입력 버퍼와 예외 상황 정리
-
-* 키보드 입력은 항상 문자열 형태로 버퍼에 들어갑니다.
-* `Scanner`는 메서드에 따라 버퍼를 읽고 해당 타입으로 해석합니다.
-* 타입이 맞지 않으면 `InputMismatchException` 발생.
-* 예외 처리를 하면 프로그램이 종료되지 않고 정상 흐름을 유지합니다.
-
----
-
-## 9. 정리 (TL;DR)
-
-* **`Scanner` 클래스**는 입력된 데이터를 **정수·실수·문자열로 해석**하는 도구.
-* 객체 생성 시 반드시 **`new Scanner(System.in)`** 으로 초기화해야 함.
-* `separator`는 **입력값을 구분하는 기준 문자**이며, 기본은 *공백·탭·엔터*.
-* 입력값이 타입에 맞지 않으면 **런타임 예외** 발생.
-* `try-catch`로 예외를 처리하면 프로그램이 비정상 종료되지 않음.
-* **입력 버퍼 → 문자열 → 타입 변환 → 변수 대입**의 흐름을 이해하는 것이 핵심.
-
-
----
-
-
-
-# 📘 자바(Java) 문자열 입력과 Scanner 동작 원리 정리
-
----
-
-## 1. 문자열(String)의 본질
-
-* 문자열은 **문자(char)의 배열**입니다.
-  예: `"Hello"` → `'H'`, `'e'`, `'l'`, `'l'`, `'o'`
-* 사용자가 키보드로 입력하는 모든 값은 **문자(char)** 로 받아들여집니다.
-  숫자 `1`도 내부적으로는 `'1'`이라는 문자로 저장됩니다.
-* 이러한 문자는 **입력 버퍼(Input Buffer)** 에 순서대로 쌓입니다.
-  즉, `"512"`를 입력하면 `'5'`, `'1'`, `'2'` 가 차례대로 저장됩니다.
-
----
-
-## 2. 입력 버퍼(Input Buffer)와 엔터(Enter) 처리
-
-* 사용자가 **Enter 키**를 누르는 순간 입력이 종료됩니다.
-* Enter는 눈에 보이지 않지만, 실제로는 **개행문자(Newline, `\n`)** 로 저장됩니다.
-* 예를 들어 `"512"`를 입력하고 Enter를 누르면:
-
-  ```
-  '5'  '1'  '2'  '\n'
-  ```
-
-  이런 식으로 버퍼에 저장됩니다.
-* 즉, 문자열 입력은 “문자 입력 + 개행 문자로 입력 종료” 구조입니다.
-
----
-
-## 3. Scanner 클래스의 입력 처리 방식
-
-`java.util.Scanner` 클래스는 입력 버퍼에서 데이터를 **토큰 단위(Token-based)** 로 읽어옵니다.
-이때 입력을 잘라내는 기준이 바로 **구분자(Delimiter)** 입니다.
-
----
-
-### (1) Scanner의 주요 입력 메서드 비교
-
-| 메서드          | 읽는 단위      | 구분자(Delimiter) | 공백 포함 여부 | 개행 포함 여부    |
-| ------------ | ---------- | -------------- | -------- | ----------- |
-| `nextInt()`  | 하나의 숫자 토큰  | 공백, 탭, 개행      | ❌ 제외     | ❌ 제외        |
-| `next()`     | 하나의 문자열 토큰 | 공백, 탭, 개행      | ❌ 제외     | ❌ 제외        |
-| `nextLine()` | 한 줄 전체     | 개행문자(`\n`)     | ✅ 포함     | ❌ (저장은 안 함) |
-
-**예시 코드**
+Java 7부터 도입된 `try-with-resources` 구문을 사용하면 `finally` 블록에서 수동으로 `close()`를 호출하지 않아도 자동으로 리소스가 해제된다.
 
 ```java
-Scanner sc = new Scanner(System.in);
-int data = sc.nextInt();     // 숫자 입력
-String text = sc.nextLine(); // 남은 한 줄 입력
+// 블록을 빠져나갈 때 sc.close()가 자동 호출됨
+try (Scanner sc = new Scanner(System.in)) {
+    System.out.print("입력: ");
+    int data = sc.nextInt();
+} catch (Exception e) {
+    e.printStackTrace();
+}
+
 ```
 
-입력값이 `10 테스트`일 때:
-
-* `data` → `10`
-* `text` → `" 테스트"` (앞 공백 포함)
+> **주의: System.in과 close()의 딜레마**
+> 
+> Scanner를 닫으면(`close()`) 연결된 기반 스트림인 `System.in`도 함께 닫힌다. 한 번 닫힌 `System.in`은 프로그램 재실행 전까지 다시 열 수 없다. 따라서 키보드 입력을 계속 받아야 한다면 Scanner를 섣불리 닫지 않도록 주의해야 한다.
+{: .prompt-warning }
 
 ---
 
-## 4. 토큰(Token)과 구분자(Delimiter, separator)
+## 6. 요약
 
-### (1) 토큰(Token)
+* **System.in & Scanner:** 바이트 스트림(`System.in`)을 Scanner가 받아 적절한 타입으로 파싱한다.
+* **버퍼 동작:** `nextInt()`는 개행문자를 남기고, `nextLine()`은 소비한다. 이 차이를 명확히 구분해야 한다.
+* **예외 방어:** `try-catch`로 예외를 잡을 때는 반드시 버퍼를 비워야(flush) 하며, 가능하면 `hasNextInt()` 등을 사용한 **사전 검증 방식**이 더 효율적이다.
+* **무한 루프 주의:** `hasNext()`가 false일 때 잘못된 토큰을 소비(`next()`)하지 않으면 프로그램이 무한 루프에 빠진다.
+* **리소스 해제:** Scanner 종료 시 `System.in`도 닫히므로, 프로그램 전체의 입력 생명주기를 고려해야 한다.
 
-* 입력 문자열을 **구분자 기준으로 나눈 최소 단위의 문자열**입니다.
-  예: `"Hello World 512"` → `"Hello"`, `"World"`, `"512"`
+### 💡 Quiz: 학습 내용 확인하기
 
-### (2) 구분자(Delimiter)
+<details>
+<summary>Q1. System.in은 어떤 단위로 데이터를 읽어오는가?</summary>
+<strong>바이트(Byte)</strong> 단위로 데이터를 읽어온다.
+</details>
 
-* 문자열을 나누는 기준이 되는 문자입니다.
-* Scanner의 **기본 구분자(separator)** 는 다음과 같습니다:
+<details>
+<summary>Q2. 사용자가 "10"을 입력하고 엔터를 쳤을 때, nextInt() 메서드는 엔터값(\n)을 버퍼에서 제거하는가?</summary>
+아니요. nextInt()는 숫자 10만 읽어가고, 엔터값(\n)은 입력 버퍼에 그대로 남겨둔다.
+</details>
 
-  * 공백 (space)
-  * 탭 (`\t`)
-  * 개행 (`\n`, `\r`)
+<details>
+<summary>Q3. hasNextInt()가 false를 반환했을 때, 버퍼에 있는 잘못된 데이터를 비우지 않고 다시 hasNextInt()를 호출하면 어떤 현상이 발생하는가?</summary>
+<strong>무한 루프(Infinite Loop)</strong>에 빠진다. 잘못된 데이터가 버퍼에 계속 남아있어 hasNextInt()가 계속 false를 반환하기 때문이다.
+</details>
 
-즉, `"Hello   World\t512\n"` 은 내부적으로 다음과 같이 나눠집니다.
-
-```
-Token1: "Hello"
-Token2: "World"
-Token3: "512"
-```
-
-### (3) 구분자 직접 변경
-
-* `useDelimiter()` 메서드로 기본 구분자를 변경할 수도 있습니다.
-
-```java
-Scanner sc = new Scanner(System.in);
-sc.useDelimiter(","); // 콤마(,) 기준으로 토큰 분리
-```
-
-입력:
-
-```
-apple,banana,grape
-```
-
-출력:
-
-```
-apple
-banana
-grape
-```
-
----
-
-## 5. 공백 문자(Whitespace)와 제어문자(Control Character)
-
-눈에 보이지 않지만 문자열에 포함되는 특수 제어 문자들입니다.
-
-| 문자              | 의미    | Escape 표기 | 포함 여부  |
-| --------------- | ----- | --------- | ------ |
-| Space           | 공백    | `" "`     | 기본 구분자 |
-| Tab             | 탭     | `\t`      | 기본 구분자 |
-| Newline         | 줄바꿈   | `\n`      | 기본 구분자 |
-| Carriage Return | 커서 복귀 | `\r`      | 기본 구분자 |
-
----
-
-## 6. 문자 단위 입력 (한 글자씩 읽기)
-
-* `Scanner` 는 기본적으로 **토큰 단위**로 동작합니다.
-* 한 글자씩 직접 입력받으려면 **`System.in.read()`** 를 사용해야 합니다.
-
-```java
-int code = System.in.read();  // 한 글자 입력 (byte 단위)
-char ch = (char) code;        // 문자 변환
-System.out.println("입력된 문자: " + ch);
-```
-
-단, `System.in.read()` 는 **byte 단위 입력**이므로, 한글(2바이트 이상)은 깨질 수 있습니다.
-
----
-
-## 7. 입력 예시별 Scanner 동작
-
-| 입력값                                        | 코드                 | 결과                         |
-| ------------------------------------------ | ------------------ | -------------------------- |
-| `10 20`                                    | `nextInt()` 두 번 호출 | 첫 번째: 10, 두 번째: 20         |
-| `Hello World`                              | `next()` 두 번 호출    | "Hello", "World"           |
-| `Hello World`                              | `nextLine()`       | `"Hello World"` (공백 포함)    |
-| `apple,banana,grape` + `useDelimiter(",")` | `next()` 세 번 호출    | "apple", "banana", "grape" |
-
----
-
-## TL;DR 요약
-
-| 개념                    | 설명                               |
-| --------------------- | -------------------------------- |
-| 문자열(String)           | 문자(char)의 배열                     |
-| 입력 버퍼                 | 사용자가 입력한 문자를 임시 저장하는 메모리 공간      |
-| 엔터키                   | 개행문자(`\n`)로 저장되어 입력 종료 표시        |
-| Scanner의 기본 구분자       | 공백(` `), 탭(`\t`), 개행(`\n`, `\r`) |
-| `nextInt()`, `next()` | 구분자에서 입력을 끊음                     |
-| `nextLine()`          | 개행(`\n`) 전까지 한 줄 전체 읽음           |
-| 토큰(Token)             | 구분자로 나뉜 입력의 최소 단위                |
-| 구분자(Delimiter)        | 입력을 나누는 기준 문자 (기본: 공백, 탭, 개행)    |
-| `useDelimiter()`      | 구분자 직접 변경 가능                     |
-| 화이트스페이스               | 눈에 안 보이는 공백/탭/개행 등 제어문자          |
+<details>
+<summary>Q4. hasNextInt() 메서드는 입력 버퍼의 데이터를 소비(Consume)하는가?</summary>
+아니요. <strong>미리보기(Peek)</strong>만 수행하며, 데이터를 버퍼에서 제거하지 않는다.
+</details>
