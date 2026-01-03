@@ -3,7 +3,7 @@ title: 보이지 않는 임시 객체(Temporary Objects)
 date: 2026-01-02 22:50 +0900
 author: hyesung
 description: 코드 상에는 명시되지 않지만 연산 과정에서 생성되었다가 사라지는 '임시 객체'의 생명주기와 메모리 영향
-categories: JAVA
+categories: JAVA 03-Memory-Management
 mermaid: true
 ---
 Java 프로그래밍에서 객체는 일반적으로 `new` 키워드를 통해 생성되고, 참조 변수(Reference Variable)를 통해 제어된다. 하지만 우리가 작성하는 코드의 이면에는 개발자가 의도적으로 이름을 붙이지 않았음에도 생성되었다가, 역할이 끝나면 조용히 사라지는 **임시 객체(Temporary Object)** 들이 존재한다.

@@ -3,7 +3,7 @@ title: Short Circuit
 date: 2025-11-20 21:51 +0900
 author: hyesung
 description: 논리 연산에서 불필요한 연산을 생략하여 성능을 높이는 Short Circuit의 동작 원리
-categories: JAVA 01-basic-syntax
+categories: JAVA 01-Basic-Syntax
 mermaid: true
 ---
 **Short Circuit(단락 회로)** 평가는 프로그래밍 언어의 컴파일러나 인터프리터가 논리 연산식을 평가할 때 사용하는 최적화 기법이다. 모든 연산자는 **왼쪽에서 오른쪽(`->`)** 으로 평가되는데, 앞선 연산의 결과만으로 전체 식의 결과가 확정될 경우 **남은 연산 과정을 아예 실행하지 않고 건너뛰는(Skip)** 것을 의미한다.

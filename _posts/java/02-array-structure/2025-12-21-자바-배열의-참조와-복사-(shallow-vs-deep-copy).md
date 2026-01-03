@@ -3,7 +3,7 @@ title: 자바 배열의 참조와 복사 (Shallow vs Deep Copy)
 date: 2025-12-21 18:25 +0900
 author: hyesung
 description: 자바 배열의 메모리 구조적 특징인 참조(Reference)의 개념을 정의하고, 이를 바탕으로 얕은 복사(Shallow Copy)와 깊은 복사(Deep Copy)의 차이점을 알아보자
-categories: JAVA 02-array-structure
+categories: JAVA 02-Array-Structure
 mermaid: true
 ---
 ## 1. 배열의 구조적 본질: 참조자(Reference)

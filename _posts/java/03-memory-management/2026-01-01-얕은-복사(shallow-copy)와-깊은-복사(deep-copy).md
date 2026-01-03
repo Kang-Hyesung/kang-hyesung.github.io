@@ -4,7 +4,7 @@ date: 2026-01-01 18:15 +0900
 author: hyesung
 description:
 mermaid: true
-categories: JAVA
+categories: JAVA 03-Memory-Management
 ---
 ## 1. 참조(Reference)와 인스턴스(Instance)의 분리
 

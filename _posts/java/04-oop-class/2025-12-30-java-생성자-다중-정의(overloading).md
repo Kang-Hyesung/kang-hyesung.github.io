@@ -3,7 +3,8 @@ title: Java 생성자 다중 정의(Overloading)
 date: 2025-12-30 21:01 +0900
 author: hyesung
 description:
-categories: JAVA
+categories: JAVA 04-OOP-Class
+mermaid: true
 ---
 ## 1. 생성자 다중정의(Constructor Overloading)란?
 
