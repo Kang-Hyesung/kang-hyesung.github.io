@@ -4,6 +4,7 @@ date: 2025-11-13 20:01 +0900
 author: hyesung
 categories: JAVA 01-basic-syntax
 description: 사용자가 입력한 데이터가 메모리에 적재되고, 자바 프로그램이 이를 해석하여 변수에 담기까지의 과정
+mermaid: true
 ---
 ## 1. 입력의 본질: 바이트에서 데이터로
 
