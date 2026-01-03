@@ -1,12 +1,9 @@
 ---
-title: "Java 입력 처리와 Scanner 클래스"
+title: Java 입력 처리와 Scanner 클래스
 date: 2025-11-13 20:01 +0900
-author: "hyesung"
-description: "설명"
-categories: JAVA
+author: hyesung
+categories: JAVA 01-basic-syntax
 ---
-# Java 입력 처리와 `Scanner` 클래스
-
 ## 1. 키보드 입력의 기본 개념
 
 프로그래밍 언어에서 **입력(Input)** 을 다룰 때는 “키보드 코드(KeyCode)”, “스캔 코드(Scan Code)”, “버추얼 코드(Virtual Code)” 같은 용어가 자주 등장합니다.

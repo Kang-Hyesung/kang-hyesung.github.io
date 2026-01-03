@@ -3,7 +3,7 @@ title: Short Circuit
 date: 2025-11-20 21:51 +0900
 author: hyesung
 description: "단락 회로 평가 : 코드 효율성과 SQL 튜닝"
-categories: JAVA
+categories: JAVA 01-basic-syntax
 ---
 ### 1\. Short Circuit의 정의
 
