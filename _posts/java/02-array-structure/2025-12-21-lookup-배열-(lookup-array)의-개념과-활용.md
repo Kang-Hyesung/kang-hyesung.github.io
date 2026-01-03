@@ -2,7 +2,6 @@
 title: Lookup 배열 (Lookup Array)의 개념과 활용
 date: 2025-12-21 16:33 +0900
 author: hyesung
-description: 설명
 categories: JAVA 02-Array-Structure
 mermaid: true
 ---
