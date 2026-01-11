@@ -32,5 +32,7 @@ package-lock.json
 # Jekyll 초안(draft) 폴더 (게시되지 않은 글들)
 _drafts/
 
-# Obsidian 설정 폴더 무시
-.obsidian/
+# Obsidian 설정은 가져오되, 개인 작업 상태 파일은 제외
+# .obsidian/ 
+.obsidian/workspace.json
+.obsidian/graph.json

@@ -1,0 +1,20 @@
+{
+  "userIgnoreFilters": [
+    "_data",
+    "_includes",
+    "_javascript",
+    "_layouts",
+    "_plugins",
+    "_sass",
+    "_tabs",
+    "_site",
+    "docs",
+    "tools"
+  ],
+  "useMarkdownLinks": true,
+  "newLinkFormat": "absolute",
+  "attachmentFolderPath": "assets/img",
+  "alwaysUpdateLinks": true,
+  "readableLineLength": false,
+  "spellcheck": false
+}
