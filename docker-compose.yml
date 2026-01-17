@@ -1,0 +1,17 @@
+services:
+  jekyll:
+    image: bretfisher/jekyll-serve
+    container_name: jekyll-serve
+    volumes:
+      - C:/Dev/Blog/kang-hyesung.github.io:/site
+      - bundle_cache:/usr/local/bundle
+    ports:
+      - "4000:4000"
+      - "35729:35729"
+    environment:
+      JEKYLL_ENV: development
+    command: >
+      bash -c "bundle install && bundle exec jekyll serve --force_polling --livereload --host 0.0.0.0"
+
+volumes:
+  bundle_cache:
