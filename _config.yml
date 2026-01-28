@@ -274,6 +274,8 @@ compress_html:
     envs: [development]
 
 exclude:
+  - .obsidian
+  - .git
   - "*.gem"
   - "*.gemspec"
   - docs

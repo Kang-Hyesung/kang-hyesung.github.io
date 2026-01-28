@@ -16,5 +16,9 @@
   "attachmentFolderPath": "assets/img",
   "alwaysUpdateLinks": true,
   "readableLineLength": false,
-  "spellcheck": false
+  "spellcheck": false,
+  "strictLineBreaks": false,
+  "propertiesInDocument": "visible",
+  "showIndentGuide": true,
+  "showLineNumber": true
 }
