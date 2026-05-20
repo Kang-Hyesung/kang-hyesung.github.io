@@ -31,12 +31,12 @@ graph LR
     
     NewObj["New Large Object"] -.->|Allocation Failed| B
     
-    style A fill:#d1e7dd,stroke:#333,stroke-width:2px
-    style C fill:#d1e7dd,stroke:#333,stroke-width:2px
-    style E fill:#d1e7dd,stroke:#333,stroke-width:2px
-    style B fill:#fff,stroke:#999,stroke-dasharray: 5 5
-    style D fill:#fff,stroke:#999,stroke-dasharray: 5 5
-    style NewObj fill:#f8d7da,stroke:#333,stroke-width:2px
+    style A fill:#166534,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
+    style C fill:#166534,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
+    style E fill:#166534,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
+    style B fill:#1f2937,stroke:#4b5563,stroke-dasharray: 5 5,color:#f8fafc
+    style D fill:#1f2937,stroke:#4b5563,stroke-dasharray: 5 5,color:#f8fafc
+    style NewObj fill:#991b1b,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
 
 
 ```
@@ -73,13 +73,13 @@ graph TB
     A1 -->|Copy & Compact| B1
     A2 -->|Copy & Compact| B2
 
-    style A1 fill:#d1e7dd,stroke:#333
-    style A2 fill:#d1e7dd,stroke:#333
-    style X1 fill:#f8d7da,stroke:#333
-    style X2 fill:#f8d7da,stroke:#333
-    style B1 fill:#d1e7dd,stroke:#333
-    style B2 fill:#d1e7dd,stroke:#333
-    style Free fill:#e1f5fe,stroke:#333,stroke-dasharray: 5 5
+    style A1 fill:#166534,stroke:#94a3b8,color:#f8fafc
+    style A2 fill:#166534,stroke:#94a3b8,color:#f8fafc
+    style X1 fill:#991b1b,stroke:#94a3b8,color:#f8fafc
+    style X2 fill:#991b1b,stroke:#94a3b8,color:#f8fafc
+    style B1 fill:#166534,stroke:#94a3b8,color:#f8fafc
+    style B2 fill:#166534,stroke:#94a3b8,color:#f8fafc
+    style Free fill:#075985,stroke:#94a3b8,stroke-dasharray: 5 5,color:#f8fafc
 
 
 ```

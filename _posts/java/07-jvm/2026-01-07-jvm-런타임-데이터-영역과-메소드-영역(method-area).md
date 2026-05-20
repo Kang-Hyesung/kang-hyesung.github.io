@@ -33,11 +33,11 @@ graph LR
     Heap <-->|Object Reference| stack
 
     %% 스타일 정의
-    style Shared fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    style Thread fill:#fff3cd,stroke:#ff6f00,stroke-width:2px
-    style MA fill:#b3e5fc,stroke:#0277bd
-    style Heap fill:#b3e5fc,stroke:#0277bd
-    style stack fill:#ffe0b2,stroke:#ff6f00
+    style Shared fill:#075985,stroke:#0ea5e9,stroke-width:2px,color:#f8fafc
+    style Thread fill:#854d0e,stroke:#c2410c,stroke-width:2px,color:#f8fafc
+    style MA fill:#075985,stroke:#38bdf8,color:#f8fafc
+    style Heap fill:#075985,stroke:#38bdf8,color:#f8fafc
+    style stack fill:#9a3412,stroke:#c2410c,color:#f8fafc
 ```
 
 ### 2.1 스레드 격리 영역 (Thread Specific Area)

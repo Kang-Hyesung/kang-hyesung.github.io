@@ -41,8 +41,8 @@ graph TD;
     J --> K[Execute Logic];
     end
 
-    style Traditional fill:#f9f,stroke:#333,stroke-width:2px
-    style Lookup fill:#bbf,stroke:#333,stroke-width:2px
+    style Traditional fill:#86198f,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
+    style Lookup fill:#3730a3,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
 
 ```
 

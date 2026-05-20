@@ -90,7 +90,7 @@ graph LR
     I -->|With double| D
     end
     
-    style I fill:#f9f,stroke:#333,stroke-width:2px
+    style I fill:#86198f,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
 
 ```
 

@@ -33,8 +33,8 @@ TempObj(("임시 객체: Temp"))
 end
 Ref -->|Reference| LiveObj
 GC[Garbage Collector] -.->|Scan & Collect| TempObj
-style TempObj fill:#f9f,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
-style GC fill:#333,color:#fff,stroke:#333
+style TempObj fill:#86198f,stroke:#94a3b8,stroke-width:2px,stroke-dasharray: 5 5,color:#f8fafc
+style GC fill:#94a3b8,color:#1f2937,stroke:#94a3b8
 ```
 
 

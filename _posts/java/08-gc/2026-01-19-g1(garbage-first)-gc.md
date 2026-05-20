@@ -53,11 +53,11 @@ graph TD
     R6 --- R7
     end
 
-    classDef eden fill:#ffcdd2,stroke:#333,stroke-width:1px
-    classDef survivor fill:#bbdefb,stroke:#333,stroke-width:1px
-    classDef old fill:#fff9c4,stroke:#333,stroke-width:1px
-    classDef free fill:#f5f5f5,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5
-    classDef humongous fill:#e1bee7,stroke:#333,stroke-width:1px
+    classDef eden fill:#991b1b,stroke:#94a3b8,stroke-width:1px,color:#f8fafc
+    classDef survivor fill:#1d4ed8,stroke:#94a3b8,stroke-width:1px,color:#f8fafc
+    classDef old fill:#713f12,stroke:#94a3b8,stroke-width:1px,color:#f8fafc
+    classDef free fill:#374151,stroke:#94a3b8,stroke-width:1px,stroke-dasharray: 5 5,color:#f8fafc
+    classDef humongous fill:#86198f,stroke:#94a3b8,stroke-width:1px,color:#f8fafc
 
 ```
 

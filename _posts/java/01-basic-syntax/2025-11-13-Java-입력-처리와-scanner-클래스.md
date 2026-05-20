@@ -52,8 +52,8 @@ graph LR
     B -->|System.in| C[Scanner Object];
     C -->|Parsing methods| D["Variable (int, String)"];
     
-    style B fill:#e1f5fe,stroke:#01579b
-    style C fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#075985,stroke:#0ea5e9,color:#f8fafc
+    style C fill:#86198f,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
 
 ```
 

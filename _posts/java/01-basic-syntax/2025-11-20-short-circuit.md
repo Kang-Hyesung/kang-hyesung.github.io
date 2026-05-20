@@ -38,9 +38,9 @@ flowchart TD
     
     FinalCheck -- OR/AND --> End([최종 결과 도출])
     
-    style ResultTrue fill:#d4edda,stroke:#28a745,stroke-width:2px
-    style ResultFalse fill:#f8d7da,stroke:#dc3545,stroke-width:2px
-    style CheckB fill:#e2e3e5,stroke:#333,stroke-dasharray: 5 5
+    style ResultTrue fill:#166534,stroke:#15803d,stroke-width:2px,color:#f8fafc
+    style ResultFalse fill:#991b1b,stroke:#ef4444,stroke-width:2px,color:#f8fafc
+    style CheckB fill:#4b5563,stroke:#94a3b8,stroke-dasharray: 5 5,color:#f8fafc
 
 ```
 

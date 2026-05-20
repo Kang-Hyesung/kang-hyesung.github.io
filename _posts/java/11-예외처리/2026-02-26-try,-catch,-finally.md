@@ -31,11 +31,11 @@ graph TD
     G --> I["finally 블록 실행 (항상)"]
     C --> I
     
-    style A fill:#f9f9f9,stroke:#333,stroke-width:2px
-    style B fill:#fff3cd,stroke:#333,stroke-width:2px
-    style D fill:#f8d7da,stroke:#333,stroke-width:2px
-    style G fill:#d1e7dd,stroke:#333,stroke-width:2px
-    style I fill:#cfe2ff,stroke:#333,stroke-width:2px
+    style A fill:#374151,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
+    style B fill:#854d0e,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
+    style D fill:#991b1b,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
+    style G fill:#166534,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
+    style I fill:#1d4ed8,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
 
 ```
 
@@ -77,10 +77,10 @@ A["호출자: main() 메서드"] -->|"(1) 정상 로직 호출: render"| B["작�
 B -->|"(2) 유효성 검사 실패"| C["예외 객체 생성 및 파라미터 주입"]
 C -->|"(3) 예외 강제 발생 throw"| A
 A -->|"(4) catch 블록에서 낚아챔"| D["비즈니스 오류 분기 및 로깅"]
-style A fill:#f9f9f9,stroke:#333,stroke-width:2px
-style B fill:#d1e7dd,stroke:#333,stroke-width:2px
-style C fill:#f8d7da,stroke:#333,stroke-width:2px
-style D fill:#fff3cd,stroke:#333,stroke-width:2px
+style A fill:#374151,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
+style B fill:#166534,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
+style C fill:#991b1b,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
+style D fill:#854d0e,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
 ```
 
 > **Deep Dive: 예외 객체 생성 시 파라미터 세팅 원리**

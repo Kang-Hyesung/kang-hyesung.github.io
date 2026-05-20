@@ -52,8 +52,8 @@ graph TD
     
     Instance -->|공유| Data["Points Array: {10, 20}"]
     
-    style Ref2 fill:#f9f,stroke:#333,stroke-width:2px
-    style Instance fill:#ccf,stroke:#333,stroke-width:2px
+    style Ref2 fill:#86198f,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
+    style Instance fill:#312e81,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
 
 ```
 
@@ -121,8 +121,8 @@ graph TD
     Instance1 --> Data1["Data: {1, 2, 3}"]
     Instance2 -->|"값 복사 & New"| Data2["Data: {1, 2, 3}"]
     
-    style Instance2 fill:#bbf,stroke:#333,stroke-width:2px
-    style Data2 fill:#bfb,stroke:#333,stroke-width:2px
+    style Instance2 fill:#3730a3,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
+    style Data2 fill:#166534,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
 
 ```
 

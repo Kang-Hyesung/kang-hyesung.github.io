@@ -390,9 +390,9 @@ graph LR
     B --> C[("Database")]
 
     %% 스타일 정의
-    style A fill:#f9f9f9,stroke:#333,stroke-width:2px
-    style B fill:#d1e7dd,stroke:#333,stroke-width:2px
-    style C fill:#fff3cd,stroke:#333,stroke-width:2px
+    style A fill:#374151,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
+    style B fill:#166534,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
+    style C fill:#854d0e,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
 
 ```
 
@@ -488,8 +488,8 @@ graph TD
     A["Client"] -->|Request| B["DelegatingFilterProxy"]
     B --> C{"FilterChainProxy"}
 
-    style A fill:#f9f9f9,stroke:#333
-    style B fill:#d1e7dd,stroke:#333
+    style A fill:#374151,stroke:#94a3b8,color:#f8fafc
+    style B fill:#166534,stroke:#94a3b8,color:#f8fafc
 
 ```
 
