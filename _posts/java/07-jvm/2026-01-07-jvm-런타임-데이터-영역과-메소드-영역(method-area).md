@@ -2,7 +2,7 @@
 title: JVM 런타임 데이터 영역과 메소드 영역(Method Area)
 date: 2026-01-07 22:38 +0900
 author: hyesung
-mermaid: "true"
+mermaid: true
 categories: JAVA 07-JVM
 ---
 ## 1. 개요

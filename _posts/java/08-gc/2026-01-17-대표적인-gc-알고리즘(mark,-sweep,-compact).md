@@ -2,7 +2,7 @@
 title: 대표적인 GC 알고리즘(Mark, Sweep, Compact)
 date: 2026-01-17 12:57 +0900
 author: hyesung
-mermaid: "true"
+mermaid: true
 ---
 ## 1. 개요
 

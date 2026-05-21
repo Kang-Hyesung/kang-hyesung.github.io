@@ -12,7 +12,7 @@ title: "${title}"
 date: ${datetime}
 author: "hyesung"
 description: "설명"
-mermaid : "true"
+mermaid: true
 ---
 
 `;

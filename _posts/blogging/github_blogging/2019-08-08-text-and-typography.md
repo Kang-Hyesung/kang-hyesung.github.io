@@ -128,6 +128,92 @@ fi;
 ```
 {: file='_sass/jekyll-theme-chirpy.scss'}
 
+## Front Matter
+
+게시글 상단에는 다음과 같은 front matter를 작성한다.
+
+```yaml
+---
+title: 글 제목
+date: 2026-05-21 20:00 +0900
+author: hyesung
+mermaid: true
+math: true
+categories: JAVA 13-스레드_제어_및_기초적_동기화
+---
+```
+
+카테고리는 공백을 기준으로 depth가 나뉜다. 예를 들어 `JAVA 13-스레드_제어_및_기초적_동기화`는 `JAVA` 아래에 `13-스레드_제어_및_기초적_동기화` 카테고리가 생긴다.
+
+글을 임시로 숨기고 싶을 때는 다음 값을 추가한다.
+
+```yaml
+published: false
+```
+
+## Images
+
+이미지는 게시글에서 접근 가능한 경로를 기준으로 작성한다.
+
+```md
+![이미지 설명](assets/img/example.png)
+```
+
+이미지 크기를 조절해야 할 때는 현재 블로그에서 사용하는 다음 형태를 참고한다.
+
+```md
+![|600](assets/img/example.png)
+```
+
+GitHub Pages에서는 파일명 대소문자를 구분하므로, 이미지가 깨지면 실제 파일명과 경로가 정확히 일치하는지 확인한다.
+
+## Mermaid
+
+Mermaid를 사용하는 글은 front matter에 `mermaid: true`를 넣는다.
+
+```mermaid
+flowchart TD
+  startNode["요청 시작"] --> checkNode{"조건 확인"}
+  checkNode -->|성공| successNode["정상 처리"]
+  checkNode -->|실패| failNode["예외 처리"]
+
+  classDef normal fill:#374151,stroke:#94a3b8,stroke-width:2px,color:#f8fafc
+  classDef success fill:#166534,stroke:#22c55e,stroke-width:2px,color:#f8fafc
+  classDef danger fill:#991b1b,stroke:#ef4444,stroke-width:2px,color:#f8fafc
+
+  class startNode,checkNode normal
+  class successNode success
+  class failNode danger
+```
+
+Mermaid 스타일은 쉼표로 구분한다. `stroke-width:2px;color:#f8fafc`처럼 세미콜론으로 연결하면 `color:#f8fafc`가 노드처럼 보일 수 있다.
+
+## Math
+
+수식을 사용하는 글은 front matter에 `math: true`를 넣는다.
+
+인라인 수식은 `$O(n)$`처럼 작성한다.
+
+블록 수식은 다음과 같이 작성한다.
+
+$$
+T(n) = O(n \log n)
+$$
+
+## Post Links
+
+일반 링크는 다음처럼 작성한다.
+
+```md
+[링크 텍스트](https://example.com)
+```
+
+블로그 내부 게시글이나 특정 섹션을 연결할 때는 실제 생성된 URL을 기준으로 작성한다.
+
+```md
+[스레드 인터럽트](/posts/스레드-인터럽트/)
+```
+
 ## Video
 
 {% include embed/youtube.html id='Balreaj8Yqs' %}

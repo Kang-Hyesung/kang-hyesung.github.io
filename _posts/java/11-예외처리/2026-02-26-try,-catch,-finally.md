@@ -2,7 +2,7 @@
 title: try, catch, finally
 date: 2026-02-26 21:33 +0900
 author: hyesung
-mermaid: "true"
+mermaid: true
 categories: JAVA 11-예외-처리
 ---
 ## 1. 개요

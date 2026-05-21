@@ -2,7 +2,7 @@
 title: G1(Garbage FIrst) GC
 date: 2026-01-19 21:47 +0900
 author: hyesung
-mermaid: "true"
+mermaid: true
 categories: JAVA 08-GC
 ---
 ## 1. 개요
