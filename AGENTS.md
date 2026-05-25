@@ -10,11 +10,15 @@ Before editing, read `docs/BLOG_GUIDE.md` to understand the blog structure and w
 
 - Repo root: `C:\Dev\01_Project\Tech-Blog\kang-hyesung.github.io`
 - Blog posts are under `_posts/`.
+- For serialized technical posts, keep the two-digit sequence number in both the category folder and post filename when the surrounding series uses it, for example `01-basic-syntax` and `2025-11-11-01-title.md`.
 - When asked to write or edit a blog post, follow the Markdown style and Chirpy syntax examples in `_posts/blogging/github_blogging/2019-08-08-text-and-typography.md`.
 
 ## Front Matter Rules
 
 - `categories` in front matter are split by spaces into category depth.
+- Use `tags` for broad reusable topics, not one-off index keywords.
+- Prefer Korean tag names for Korean posts, but keep common technical abbreviations such as `JVM` and `GC`.
+- Tags may contain spaces, for example `기본 문법`, `내부 클래스`, `타입 변환`, and `클래스 로딩`.
 - Mermaid posts must include `mermaid: true` in front matter.
 
 ## Workflow Rules

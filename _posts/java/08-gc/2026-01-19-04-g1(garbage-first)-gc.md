@@ -4,6 +4,8 @@ date: 2026-01-19 21:47 +0900
 author: hyesung
 mermaid: true
 categories: JAVA 08-GC
+tags:
+  - GC
 ---
 ## 1. 개요
 

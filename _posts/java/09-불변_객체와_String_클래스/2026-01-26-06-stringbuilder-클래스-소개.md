@@ -4,6 +4,9 @@ date: 2026-01-26 21:51 +0900
 author: hyesung
 mermaid: true
 categories: JAVA 09-불변-객체와-String-클래스
+tags:
+  - 문자열
+  - 메모리
 ---
 ## 1. 개요: 불변 객체(Immutable Object)의 딜레마
 

@@ -5,6 +5,9 @@ author: hyesung
 description:
 mermaid: true
 categories: JAVA 03-Memory-Management
+tags:
+  - 메모리
+  - 객체
 ---
 ## 1. 참조(Reference)와 인스턴스(Instance)의 분리
 

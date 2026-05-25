@@ -4,6 +4,9 @@ date: 2025-12-30 21:01 +0900
 author: hyesung
 description:
 categories: JAVA 04-OOP-Class
+tags:
+  - 객체지향
+  - 생성자
 mermaid: true
 ---
 ## 1. 생성자 다중정의(Constructor Overloading)란?

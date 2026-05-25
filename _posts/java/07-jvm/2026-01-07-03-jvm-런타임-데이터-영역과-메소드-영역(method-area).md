@@ -4,6 +4,9 @@ date: 2026-01-07 22:38 +0900
 author: hyesung
 mermaid: true
 categories: JAVA 07-JVM
+tags:
+  - JVM
+  - 메모리
 ---
 ## 1. 개요
 
