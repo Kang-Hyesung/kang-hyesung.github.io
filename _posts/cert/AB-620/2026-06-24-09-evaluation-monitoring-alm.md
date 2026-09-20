@@ -2,6 +2,7 @@
 title: 09단계 - Evaluation, Monitoring, ALM
 date: 2026-06-24 09:08 +0900
 author: hyesung
+published: false
 categories: CERT AB-620
 tags:
   - AB-620

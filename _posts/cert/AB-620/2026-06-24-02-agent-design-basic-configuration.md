@@ -2,6 +2,7 @@
 title: 02단계 - Agent 설계와 기본 구성
 date: 2026-06-24 09:01 +0900
 author: hyesung
+published: false
 categories: CERT AB-620
 tags:
   - AB-620

@@ -2,6 +2,7 @@
 title: 10단계 - 실전 시나리오 판단 훈련
 date: 2026-06-24 09:09 +0900
 author: hyesung
+published: false
 categories: CERT AB-620
 tags:
   - AB-620

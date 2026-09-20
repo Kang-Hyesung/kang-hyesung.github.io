@@ -2,6 +2,7 @@
 title: 05단계 - Connector, REST API, Custom Connector
 date: 2026-06-24 09:04 +0900
 author: hyesung
+published: false
 categories: CERT AB-620
 tags:
   - AB-620

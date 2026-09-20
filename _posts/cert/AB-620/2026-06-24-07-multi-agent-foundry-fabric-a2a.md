@@ -2,6 +2,7 @@
 title: 07단계 - Multi-Agent, Foundry, Fabric, A2A
 date: 2026-06-24 09:06 +0900
 author: hyesung
+published: false
 categories: CERT AB-620
 tags:
   - AB-620

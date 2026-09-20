@@ -2,6 +2,7 @@
 title: 08단계 - 보안, Governance, Responsible AI
 date: 2026-06-24 09:07 +0900
 author: hyesung
+published: false
 categories: CERT AB-620
 tags:
   - AB-620

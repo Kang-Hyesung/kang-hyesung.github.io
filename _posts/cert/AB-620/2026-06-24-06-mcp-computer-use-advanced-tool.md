@@ -2,6 +2,7 @@
 title: 06단계 - MCP, Computer Use, 고급 Tool
 date: 2026-06-24 09:05 +0900
 author: hyesung
+published: false
 categories: CERT AB-620
 tags:
   - AB-620
