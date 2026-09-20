@@ -2,6 +2,7 @@
 title: StringBuilder 클래스 소개
 date: 2026-01-26 21:51 +0900
 author: hyesung
+published: false
 mermaid: true
 categories: JAVA 09-불변-객체와-String-클래스
 tags:

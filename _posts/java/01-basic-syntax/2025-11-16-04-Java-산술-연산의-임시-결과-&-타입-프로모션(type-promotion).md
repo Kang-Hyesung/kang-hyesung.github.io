@@ -2,6 +2,7 @@
 title: Java 산술 연산의 임시 결과 & 타입 프로모션(Type Promotion)
 date: 2025-11-16 22:30 +0900
 author: hyesung
+published: false
 categories: JAVA 01-Basic-Syntax
 tags:
   - 기본 문법

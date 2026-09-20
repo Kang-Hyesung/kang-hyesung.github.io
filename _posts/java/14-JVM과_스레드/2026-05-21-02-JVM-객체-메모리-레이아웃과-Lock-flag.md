@@ -2,6 +2,7 @@
 title: JVM 객체 메모리 레이아웃과 Lock flag
 date: 2026-05-21 22:10 +0900
 author: hyesung
+published: false
 categories: JAVA 14-JVM과_스레드
 tags:
   - JVM

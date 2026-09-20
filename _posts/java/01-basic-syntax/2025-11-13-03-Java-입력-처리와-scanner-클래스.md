@@ -2,6 +2,7 @@
 title: Java 입력 처리와 Scanner 클래스
 date: 2025-11-13 20:01 +0900
 author: hyesung
+published: false
 categories: JAVA 01-Basic-Syntax
 tags:
   - 기본 문법

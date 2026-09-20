@@ -2,6 +2,7 @@
 title: 보이지 않는 임시 객체(Temporary Objects)
 date: 2026-01-02 22:50 +0900
 author: hyesung
+published: false
 description: 코드 상에는 명시되지 않지만 연산 과정에서 생성되었다가 사라지는 '임시 객체'의 생명주기와 메모리 영향
 categories: JAVA 03-Memory-Management
 tags:

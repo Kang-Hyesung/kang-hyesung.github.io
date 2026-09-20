@@ -2,6 +2,7 @@
 title: Short Circuit
 date: 2025-11-20 21:51 +0900
 author: hyesung
+published: false
 description: 논리 연산에서 불필요한 연산을 생략하여 성능을 높이는 Short Circuit의 동작 원리
 categories: JAVA 01-Basic-Syntax
 tags:

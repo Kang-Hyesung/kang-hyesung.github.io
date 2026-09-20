@@ -2,6 +2,7 @@
 title: 얕은 복사(Shallow Copy)와 깊은 복사(Deep Copy)
 date: 2026-01-01 18:15 +0900
 author: hyesung
+published: false
 description:
 mermaid: true
 categories: JAVA 03-Memory-Management

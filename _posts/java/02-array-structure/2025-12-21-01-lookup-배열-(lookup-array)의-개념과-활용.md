@@ -2,6 +2,7 @@
 title: Lookup 배열 (Lookup Array)의 개념과 활용
 date: 2025-12-21 16:33 +0900
 author: hyesung
+published: false
 categories: JAVA 02-Array-Structure
 tags:
   - 배열
