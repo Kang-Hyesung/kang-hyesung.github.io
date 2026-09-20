@@ -27,6 +27,16 @@ _posts/
 
 블로그 글이 들어가는 핵심 폴더다. Java, Project, Cert 등 주제별 하위 폴더로 나뉘어 있다.
 
+운영체제와 네트워크 글의 표준 경로는 다음과 같다.
+
+```text
+_posts/os/
+_posts/network/01-network-basics/
+_posts/network/02-network-interface-layer/
+```
+
+OS 글은 최상위 `OS` 카테고리를 사용한다. 네트워크 강의 글은 최상위 `Network` 아래에 번호가 붙은 섹션 카테고리를 둔다.
+
 ```text
 assets/img/
 ```
@@ -86,7 +96,7 @@ categories: JAVA 13-스레드_제어_및_기초적_동기화
 
 Mermaid 다이어그램을 사용하는 글은 front matter에 `mermaid: true`를 넣는다.
 
-Chirpy의 카테고리는 front matter의 `categories` 값을 공백 기준으로 나누어 depth를 만든다.
+Chirpy의 카테고리는 front matter의 `categories` 값을 공백 기준으로 나누어 depth를 만든다. 현재 저장소에서 사용하는 Chirpy 카테고리 화면은 상위·하위의 최대 2단계만 표시하므로 세 번째 카테고리 계층을 추가하지 않는다.
 
 ```yaml
 categories: JAVA 13-스레드_제어_및_기초적_동기화
@@ -100,6 +110,19 @@ JAVA
 ```
 
 따라서 카테고리 이름 안에서 depth를 나누고 싶지 않은 부분은 공백 대신 `_` 또는 `-`를 사용한다.
+
+네트워크 글은 다음과 같이 작성한다.
+
+```yaml
+categories: Network 01-네트워크_기초
+```
+
+```text
+Network
+└── 01-네트워크_기초
+```
+
+섹션보다 더 깊은 구분이 필요하면 세 번째 카테고리를 추가하지 말고 `_posts/network/` 아래의 폴더, 파일 번호, 제목, 태그를 사용한다.
 
 태그는 front matter의 `tags` 값으로 관리한다. 태그는 개별 글의 세부 색인어가 아니라 여러 글을 묶는 공통 주제로 사용한다.
 
@@ -254,7 +277,8 @@ git push origin main
 이 저장소는 Jekyll/Chirpy 기반 GitHub Pages 블로그입니다.
 repo root는 C:\Dev\01_Project\Tech-Blog\kang-hyesung.github.io 입니다.
 먼저 docs/BLOG_GUIDE.md를 읽고 블로그 구조와 작업 규칙을 파악해주세요.
-글은 _posts 아래에 있고, categories는 공백 기준으로 depth가 나뉩니다.
+글은 _posts 아래에 있고, categories는 공백 기준으로 나뉘지만 현재 Chirpy에서는 최대 2단계만 사용합니다.
+OS 글은 _posts/os, 네트워크 글은 _posts/network 아래에 둡니다.
 Mermaid는 front matter에 mermaid: true를 사용합니다.
 사용자는 Docker Desktop으로 로컬 서버를 띄우고 http://127.0.0.1:4000 에서 확인합니다.
 로컬 빌드 검증은 사용자가 직접 하므로 별도 요청이 없으면 실행하지 않아도 됩니다.
