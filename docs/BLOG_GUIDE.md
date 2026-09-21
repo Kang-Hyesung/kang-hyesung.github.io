@@ -33,6 +33,7 @@ _posts/
 _posts/os/
 _posts/network/01-network-basics/
 _posts/network/02-network-interface-layer/
+_posts/network/03-internet-layer/
 ```
 
 OS 글은 최상위 `OS` 카테고리를 사용한다. 네트워크 강의 글은 최상위 `Network` 아래에 번호가 붙은 섹션 카테고리를 둔다.
