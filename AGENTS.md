@@ -70,6 +70,7 @@ Lecture scripts may arrive one lecture at a time in forms such as `섹션 1의 4
 - Merge the new lecture into an existing post when it contributes to the same central reader question, continues the same conceptual flow, or would be too thin as a standalone article.
 - Create a new post when the lecture addresses an independent question, has distinct search intent, or needs enough explanation, examples, calculations, or diagrams to stand on its own.
 - When merging, reorganize the existing article so that it reads as one coherent post. Do not simply append a transcript or create visible lecture-by-lecture fragments.
+- When a newly received lecture is merged into an existing post, update the post's front matter `date` to the current work date and time so that the newly completed article appears as the latest post. Keep the existing filename date and series sequence number unchanged.
 - Supplement the lecture with relevant concepts, operational caveats, troubleshooting knowledge, commands, or examples that are widely used in real-world development or infrastructure work, even when the lecture does not mention them.
 - Keep practical additions directly connected to the article's central topic, distinguish them naturally as real-world context, and avoid unrelated tangents or padding added only to increase length.
 - Inspect the relevant lecture PDF pages when a diagram, screenshot, or other visual could materially improve the explanation.
